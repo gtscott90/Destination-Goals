@@ -1,0 +1,51 @@
+destinations.js 
+
+Create: 
+User Verification
+---User Creates Login
+        -Checks to see if input Username does NOT match any current Usernames   
+        -Ask for double-Password input
+            -Validate - Checks that Passwords match AND it meets criteria
+            -Saves to Database 
+
+
+Read:  
+-User has Login 
+        -Checks that username and Password entered math Database
+            -Fetchs Calendar play with saved Database Goal/Milestone information
+            - Pulls notes saved in database 
+
+
+-User chooses GOAL and TIME Frame
+---Get request to pull SQL Goal/Milestone data
+    - populate it into calendar
+     - calendar set to current date 
+    
+
+
+Update: 
+---When user logs in 
+    - Calendar information Display based on Current time 
+-User an input note information for each Milestone at top of page 
+
+Delete: 
+-User can remove inputted information for each Milestone
+
+
+
+
+destination.js 
+ORM information: 
+
+Select - choose Goal/Time (Or if already chosen it populate on login)
+Insert - insert Milestone notes
+Update  - Fill in Milestone notes 
+Delete - Remove/edit information in Milestone notes
+
+
+destination_controller.js 
+
+Get - after User authenication (router.get('/', - pulls Calendar and populates Goal/Milestone data
+Post - 
+Put - 
+Delete - Remove note information 
