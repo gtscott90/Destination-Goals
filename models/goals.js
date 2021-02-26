@@ -1,0 +1,1 @@
+SEQUELIZE Goals information and pulling goes here
