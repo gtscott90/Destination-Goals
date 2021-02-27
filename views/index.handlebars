@@ -1,0 +1,103 @@
+<!-- DROP DOWN --> 
+<h1>hi {{name}}</h1>
+
+<div class="ui form">
+  <div class="field">
+      <label>What goal would you like to set?</label>
+      <div class="ui selection dropdown">
+          <input type="hidden" name="goals">
+          <i class="dropdown icon"></i>
+          <div class="default text">What goal would you like to set?</div>
+          <div class="menu">
+              <div class="item" data-value="1">Learn to Play the Piano</div>
+              <div class="item" data-value="0">Learn How To Code</div>
+              <div class="item" data-value="0">Learn How to Speak Spanish</div>
+              <div class="item" data-value="0">Learn How to Bake Bread</div>
+              <div class="item" data-value="0">Learn How To Sing</div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+<!-- CHECK BOX -->
+
+
+ <div class="grouped fields">
+    <label for="fruit">In what timeframe would you like to complete this goal?</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="week" checked="" tabindex="0" class="hidden">
+        <label>1 week/label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="week" tabindex="0" class="hidden">
+        <label>2 weeks</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="week" tabindex="0" class="hidden">
+        <label>3 weeks</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="week" tabindex="0" class="hidden">
+        <label>4 weeks</label>
+      </div>
+    </div>
+
+
+
+<!-- CHECK BOX --> 
+
+ <div class="grouped fields">
+    <label for="fruit">How many times per week can you work on this goal?</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="days" checked="" tabindex="0" class="hidden">
+        <label>Once A Week</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="days" tabindex="0" class="hidden">
+        <label>Twice A Week</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="days" tabindex="0" class="hidden">
+        <label>Three Times A Week</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="days" tabindex="0" class="hidden">
+        <label>Four Times A Week</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="days" tabindex="0" class="hidden">
+        <label>Five Times A Week</label>
+      </div>
+       <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="days" tabindex="0" class="hidden">
+        <label>Six Times A Week</label>
+      </div>
+       <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="days" tabindex="0" class="hidden">
+        <label>Everyday</label>
+      </div>
+      </div>
+    </div>
+
+    <form action="/logout?_method=DELETE" method="POST">
+    <button type="submit">Log Out</button>
+</form>
