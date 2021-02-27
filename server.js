@@ -10,18 +10,18 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
-const initializePassport = require('./config/passport')
-/* initializePassport(
+/* const initializePassport = require('./config/passport')
+initializePassport(
   passport, 
   email => users.find(users => users.email === email),
   id => users.find(user => user.id === id)
-) */
-
+) 
+ */
 const PORT = process.env.PORT || 8080;
 
 var db = require("./models");
 
-const users = []; 
+/* const users = [];  */
 
 const exphbs = require('express-handlebars');
 
@@ -84,7 +84,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
   } console.log(users)
 })
 
-app.delete('/logout', (req, res) => {
+app.get('/logout', (req, res) => {
   req.logOut()
   res.redirect('/login')
 })
