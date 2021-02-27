@@ -1,6 +1,8 @@
 // Requiring path to so we can use relative routes to our HTML files
+const { decodeBase64 } = require("bcryptjs");
 const { time } = require("console");
 var path = require("path");
+const db = require('../models');
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -49,7 +51,7 @@ Set up handlebars to render one week at a time  */
 //could hardcode calendar and then each day 
 
 
-router.get('/members/:id', function (res, req) {
+app.get('/members/:id', function (res, req) {
     var renderInfo = {}
     User.findAll({
         where: {
@@ -82,3 +84,17 @@ fetch('members/2')
             }
         })
     })
+
+
+    // TODO: need to be attached to the models folder 
+    // app.get('/api/goals/:id', (req, res) => {
+    //     db.User.findOne({
+    //         where: {
+    //             id: req.params.id
+    //         },
+    //         include: [db.Goals, {
+    //             model: db.Goals,
+    //             include: db.Milestones
+    //         }]
+    //     }).then(result => res.json(result))
+    // })
