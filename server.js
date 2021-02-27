@@ -3,31 +3,36 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express')
+const app = express()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
-/* const initializePassport = require('./config/passport-config.js')
-initializePassport(
+const initializePassport = require('./config/passport')
+/* initializePassport(
   passport, 
   email => users.find(users => users.email === email),
   id => users.find(user => user.id === id)
-)
-
-const users = [];  */
+) */
 
 const PORT = process.env.PORT || 8080;
 
-const app = express();
+var db = require("./models");
 
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static('public'));
+const users = []; 
 
-// Parse application body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+const exphbs = require('express-handlebars');
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
+// Requiring our routes
+/* require("../project2/controllers/goals-routes.js")(app);
+require("../project2/controllers/api-routes.js")(app); */ 
+
+app.use(express.urlencoded({ extended: false }));
 app.use(flash())
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -38,21 +43,65 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 
-// Set Handlebars.
-const exphbs = require('express-handlebars');
-
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-
-// Import routes and give the server access to them.
-// **UPDATE TO HAVE CORRECT CONTROLLER FOLDER**
 
 
-// Requiring our routes
-require("./routes/goal-routes.js")(app);
-require("./routes/api-routes.js")(app);
+app.get('/', checkAuthenticated, (req, res) => {
+  res.render('index.handlebars', { name: req.user.name })
+})
 
-// Syncing our database and logging a message to the user upon success
+app.get('/login', checkNotAuthenticated, (req, res) => {
+  res.render('login.handlebars')
+});
+
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', 
+{
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}))
+
+app.get('/register', checkNotAuthenticated, (req, res) => {
+  res.render('register.handlebars')
+})
+
+app.post('/register', checkNotAuthenticated, async (req, res) => {
+  //what is put after Body corresponds with "name=" field in Register
+  try {
+      // can hold hashedPassword in database
+      const hashedPassword = await bcrypt.hash(req.body.password, 10)
+      ////instead of pushing to Array, push to mySQL database
+      db.User.create({
+          id: Date.now().toString(),
+          name: req.body.name,
+          email: req.body.email,
+          password: req.body.password
+         // password: hashedPassword
+
+      })
+      res.redirect('/login')
+  } catch {
+      res.redirect('/register')
+  } console.log(users)
+})
+
+app.delete('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/login')
+})
+
+function checkAuthenticated(req, res, next){
+  if (req.isAuthenticated()) {
+      return next()
+  }
+  res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+      return res.redirect('/')
+  }
+  next()
+}
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
