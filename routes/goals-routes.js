@@ -10,32 +10,47 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/goals");
     }
-    ///THIS IS FOR ASKING THE INITIAL QUESTIONS 
-    //
-
-    res.render("../views/index.handlebars"), { burger_data: burgerData };
+    res.render("../views/register.handlebars"); 
   });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/register");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("../views/login.handlebars");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
+  app.get("/register", isAuthenticated, function(req, res) {
+    res.render("../views/register.handlebars");
+  });
+
+  app.post("/register", isAuthenticated, function(req, res) {
+    res.redirect("/firstlogin");
+  });
+
+  app.get("/firstlogin", isAuthenticated, function(req, res) {
+    res.render("../views/index.handlebars");
+  });
+
+
+  app.get("/goals", isAuthenticated, function(req, res) {
     //THIS IS WHERE USER INFORMATION WILL POPULATE THE CALENDAR 
     // Get request using Sequelize (db.FindAll() "where Author ID equals 2" for what GOAL user set and pull milestones
     // then - as a Promise -  have another GET request  )
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.render("../views/index.handlebars");
   });
 
 };
+
+
+
+
+
 
 
 
@@ -50,7 +65,7 @@ Set up handlebars to render one week at a time  */
 //could hardcode calendar and then each day 
 
 
-router.get('/members/:id', function (res, req) {
+/* app.get('/members/:id', function (res, req) {
     var renderInfo = {}
     User.findAll({
         where: {
@@ -82,4 +97,4 @@ fetch('members/2')
                 mondays[week].innerText = step
             }
         })
-    })
+    }) */

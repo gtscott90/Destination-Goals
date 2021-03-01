@@ -29,8 +29,10 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Requiring our routes
-/* require("../project2/controllers/goals-routes.js")(app);
-require("../project2/controllers/api-routes.js")(app); */ 
+
+require("./routes/goals-routes")(app);
+require("./routes/XXXXdestinationController")(app);
+require("./routes/api-routes.js")(app);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(flash())
@@ -44,52 +46,53 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 
-
-app.get('/', checkAuthenticated, (req, res) => {
+/* 
+app.get('/', (req, res) => {
   res.render('index.handlebars', { name: req.user.name })
 })
 
-app.get('/login', checkNotAuthenticated, (req, res) => {
+app.get('/login', (req, res) => {
   res.render('login.handlebars')
 });
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', 
+app.post('/login',  passport.authenticate('local', 
 {
   successRedirect: '/',
   failureRedirect: '/login',
   failureFlash: true
 }))
 
-app.get('/register', checkNotAuthenticated, (req, res) => {
+app.get('/register',  (req, res) => {
   res.render('register.handlebars')
 })
 
-app.post('/register', checkNotAuthenticated, async (req, res) => {
+app.post('/register',  checkNotAuthenticated,  async (req, res) => {
   //what is put after Body corresponds with "name=" field in Register
   try {
       // can hold hashedPassword in database
       const hashedPassword = await bcrypt.hash(req.body.password, 10)
       ////instead of pushing to Array, push to mySQL database
-      db.User.create({
-          id: Date.now().toString(),
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password
-         // password: hashedPassword
-
-      })
+      console.log("HIIIII")
+      db.User.insert({
+        id: Date.now().toString(),
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        // password: hashedPassword 
+        }).then(result => res.json(result))
+        console.log(result)
+        console.log(User)
       res.redirect('/login')
   } catch {
       res.redirect('/register')
-  } console.log(users)
+  } 
 })
-
 app.get('/logout', (req, res) => {
   req.logOut()
   res.redirect('/login')
 })
-
-function checkAuthenticated(req, res, next){
+ 
+ function checkAuthenticated(req, res, next){
   if (req.isAuthenticated()) {
       return next()
   }
@@ -101,7 +104,11 @@ function checkNotAuthenticated(req, res, next) {
       return res.redirect('/')
   }
   next()
-}
+} */
+
+
+
+
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {

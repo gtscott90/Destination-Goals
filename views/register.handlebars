@@ -1,16 +1,24 @@
+<script src="../public/assets/js/signup.js" async defer></script> 
+
+<div class="ui raised very padded text container segment">
+  <h2 class="ui header">Destination: YOU</h2>
+  <p> We’ve all been there before. New Year’s resolutions that didn’t work out. Goals we set for ourselves that we never made any progress on. Things we wanted to learn, but never really knew where to start. So we didn’t. Destination is here to change that, where the destination is a better and more accomplished YOU! Destination takes all of the hassle and stress out of trying to learn something new by curating various goals with tasks and milestones to make the seemingly impossible very much a thing of the past.  </p>
+  <p>So what do you want to learn? Where do you want to end up? </p>
+</div>
+
 <h1>Register</h1>
-<form action="/register" method="POST">
-    <div>
+<form class="register" action="/register" method="POST">
+  {{!--   <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
     </div>
-    <div>
+    <div> --}}
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="email" id="email-input" name="email" placeholder="Email" required>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="password" id="password-input" name="password" placeholder="Password" required>
     </div>
     <button type="submit">Register</button>
 </form>
