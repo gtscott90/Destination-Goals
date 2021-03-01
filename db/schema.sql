@@ -3,13 +3,6 @@ CREATE database goals_DB;
 
 USE goals_DB;
 
-CREATE TABLE User (
- id VARCHAR(150) PRIMARY KEY,
- name VARCHAR(150),
- email VARCHAR(150),
- password VARCHAR(150)
-);
-
 CREATE TABLE bigGoal (
   id INT AUTO_INCREMENT NOT NULL,
   goal_name VARCHAR(30) NOT NULL,
