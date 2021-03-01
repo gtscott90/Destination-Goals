@@ -42,7 +42,7 @@ module.exports = function(app) {
     //THIS IS WHERE USER INFORMATION WILL POPULATE THE CALENDAR 
     // Get request using Sequelize (db.FindAll() "where Author ID equals 2" for what GOAL user set and pull milestones
     // then - as a Promise -  have another GET request  )
-    res.render("../views/index.handlebars");
+    res.render("../views/goals.handlebars");
   });
 
 };

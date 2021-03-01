@@ -1,5 +1,3 @@
-
-
 module.exports = function(sequelize, DataTypes) {
     var UserAnswer = sequelize.define("userAnswer", {
       // The email cannot be null, and must be a proper email before creation
