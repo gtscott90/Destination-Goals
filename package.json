@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gtscott90/burger-eater.git"
+    "url": "git+https://github.com/jacquelinerodney/project2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gtscott90/burger-eater/issues"
+    "url": "https://github.com/jacquelinerodney/project2/issues"
   },
-  "homepage": "https://github.com/gtscott90/burger-eater#readme",
+  "homepage": "https://github.com/jacquelinerodney/project2#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
