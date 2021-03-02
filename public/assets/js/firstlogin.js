@@ -16,19 +16,19 @@ $(document).ready(function() {
             frequency: frequencyInput.val(),
             id: user.id //req.params.id//
         } 
-        goalsData(userGoals.goal, userGoals.frequency, userGoals.id){
+        // goalsData(userGoals.goal, userGoals.frequency, userGoals.id){
             $.post("/goals", {
                 goal: goal,
                 frequency: frequency,
                 id: id
-            }) console.log(userGoals)
+            })
             .then(function() {
                 window.location.replace("/goals");
             })
             .catch(function(err) {
-                console.log(err)l
+                console.log(err)
             });
-        }
+        })
 
     logoutBTN.on("click", function(event){
             $.get("/logout")
