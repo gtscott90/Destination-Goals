@@ -4,11 +4,12 @@ var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+const db = require("../models");
 
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the goals page
     if (req.user) {
       res.redirect("/goals");
     }
@@ -16,32 +17,34 @@ module.exports = function(app) {
   });
 
   app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the goals page
     if (req.user) {
-      res.redirect("/register");
+      res.redirect("/firstlogin");
     }
-    res.render("../views/login.handlebars");
+    res.render("../views/login.handlebars"); 
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/register", isAuthenticated, function(req, res) {
+  app.get("/signup", function(req, res) {
     res.render("../views/register.handlebars");
   });
 
-  app.post("/register", isAuthenticated, function(req, res) {
+/*   app.post("/register", isAuthenticated, function(req, res) {
     res.redirect("/firstlogin");
   });
-
+ */
   app.get("/firstlogin", isAuthenticated, function(req, res) {
     res.render("../views/index.handlebars");
   });
 
 
-  app.get("/goals", isAuthenticated, function(req, res) {
+  app.get("/goals", /* isAuthenticated, */ function(req, res) {
     //THIS IS WHERE USER INFORMATION WILL POPULATE THE CALENDAR 
     // Get request using Sequelize (db.FindAll() "where Author ID equals 2" for what GOAL user set and pull milestones
     // then - as a Promise -  have another GET request  )
+    db.findAll()
+
     res.render("../views/goals.handlebars");
   });
 

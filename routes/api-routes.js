@@ -13,18 +13,62 @@ module.exports = function(app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/register", function(req, res) {
+  app.post("/api/signup", function(req, res) {
     db.User.create({
+/*       name: req.body.name, */
       email: req.body.email,
       password: req.body.password
     })
-      .then(function() {
-        res.redirect(307, "/api/login");
+      .then(function(user) {
+          /* res.json(user) */
+        res.redirect(307, "/api/login"); 
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
   });
+
+  app.get("/api/signup", function(req, res) {
+      console.log(req.body.email,
+      req.body.password)
+  });
+
+
+ /*  app.post('/register',  async (req, res) => {
+    //what is put after Body corresponds with "name=" field in Register
+    try {
+        // can hold hashedPassword in database
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        ////instead of pushing to Array, push to mySQL database
+        console.log("HIIIII")
+        db.User.insert({
+          id: Date.now().toString(),
+          name: req.body.name,
+          email: req.body.email,
+          password: req.body.password,
+          // password: hashedPassword 
+          }).then(result => res.json(result))
+          console.log(result)
+          console.log(User)
+        res.redirect('/login')
+    } catch {
+        res.redirect('/register')
+    } 
+  });
+  */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*   app.post("/api/firstlogin", function(req, res) {
     db.Usergoals.create({
@@ -42,7 +86,7 @@ module.exports = function(app) {
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
-    res.redirect("/");
+    res.redirect("/login");
   });
 
   // Route for getting some data about our user to be used client side
@@ -60,10 +104,6 @@ module.exports = function(app) {
     }
   });
 };
-
-
-
-
 
 
 
@@ -94,6 +134,7 @@ app.get("/", function(req, res) {
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
+
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
@@ -171,3 +212,22 @@ fetch('members/2')
     //         }]
     //     }).then(result => res.json(result))
     // })
+
+
+
+
+
+    ///In handlebars ID in the answerspots 
+    //in the public/js pulling the values that are inputted 
+
+
+    //Step 1: user fills out form 
+        //goal
+        //frequency per week
+        //how many weeks
+
+    //Step 2 - 
+//set variable USer GOALS 
+
+///
+
