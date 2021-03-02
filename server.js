@@ -11,6 +11,17 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const mysql = require('mysql');
 var connection;
+const bodyParser = require('body-parser');
+const path = require('path');
+app.use(express.static('public'))
+app.use('/public', express.static(path.join(__dirname, 'public')))
+
+/* const bodyParser = require('body-parser');
+
+//body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public'))); */
 
 /* const initializePassport = require('./config/passport')
 initializePassport(
@@ -49,6 +60,10 @@ require("./routes/goals-routes")(app);
 require("./routes/XXXXdestinationController")(app);
 require("./routes/api-routes.js")(app);
 
+require("./config/passport", passport, db.User);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.urlencoded({ extended: false }));
 app.use(flash())
 app.use(session({
