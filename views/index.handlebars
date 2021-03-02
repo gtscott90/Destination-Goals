@@ -1,13 +1,13 @@
 {{!-- <script src="../../public/assets/js/members.js" async defer></script>
  --}}
 <!-- DROP DOWN --> 
-<h1>hi {{user.name}}</h1>
+<h2>Hi {{user.name}}!</h2>
 
 <div class="ui form">
   <div class="field">
       <label>What goal would you like to set?</label>
       <div class="ui selection dropdown">
-          <input type="hidden" name="goals">
+          <input type="hidden" name="goals" id="goals">
           <i class="dropdown icon"></i>
           <div class="default text">What goal would you like to set?</div>
           <div class="menu">
@@ -22,38 +22,36 @@
 </div>
 
 
-
-
 <!-- CHECK BOX -->
 
-
+{{!-- 
  <div class="grouped fields">
     <label for="weeks">In what timeframe would you like to complete this goal?</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="week" checked="" tabindex="0" class="hidden">
-        <label>1 week</label>
+        <input id="oneweek" type="radio" name="week" tabindex="0" class="hidden" value="oneWeek" required>
+        <label for="oneweek">1 week</label>
+      </div>  
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input id="twoweek" type="radio" name="week" tabindex="0" class="hidden" value="twoWeek">
+        <label for="twoweek">2 weeks</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="week" tabindex="0" class="hidden">
-        <label>2 weeks</label>
+        <input id="threeweek" type="radio" name="week" tabindex="0" class="hidden" value="threeWeek">
+        <label for="threeweek">3 weeks</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="week" tabindex="0" class="hidden">
-        <label>3 weeks</label>
+        <input id="fourweek" type="radio" name="week" tabindex="0" class="hidden" value="fourWeek">
+        <label for="fourweek">4 weeks</label>
       </div>
     </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="week" tabindex="0" class="hidden">
-        <label>4 weeks</label>
-      </div>
-    </div>
-
+ --}}
 
 
 <!-- CHECK BOX --> 
@@ -62,44 +60,50 @@
     <label for="days">How many times per week can you work on this goal?</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="days" checked="" tabindex="0" class="hidden">
-        <label>Once A Week</label>
+        <input id="one" type="radio" name="days" tabindex="0" class="hidden" value="one" required>
+        <label for="one">Once A Week</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="days" tabindex="0" class="hidden">
-        <label>Twice A Week</label>
+        <input id="two" type="radio" name="days" tabindex="0" class="hidden" value="two">
+        <label for="two" >Twice A Week</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="days" tabindex="0" class="hidden">
-        <label>Three Times A Week</label>
+        <input id="three" type="radio" name="days" tabindex="0" class="hidden" value="three">
+        <label for="three">Three Times A Week</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="days" tabindex="0" class="hidden">
-        <label>Four Times A Week</label>
+        <input id="four" type="radio" name="days" tabindex="0" class="hidden" value="four">
+        <label for="four">Four Times A Week</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="days" tabindex="0" class="hidden">
-        <label>Five Times A Week</label>
+        <input id="five" type="radio" name="days" tabindex="0" class="hidden" value="five">
+        <label for="five">Five Times A Week</label>
       </div>
        <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="days" tabindex="0" class="hidden">
-        <label>Six Times A Week</label>
+        <input id="six" type="radio" name="days" tabindex="0" class="hidden" value="six">
+        <label for="six">Six Times A Week</label>
       </div>
        <div class="field">
       <div class="ui radio checkbox">
-        <input type="radio" name="days" tabindex="0" class="hidden">
-        <label>Everyday</label>
+        <input id="seven" type="radio" name="days" tabindex="0" class="hidden" value="seven">
+        <label for="seven">Everyday</label>
       </div>
-      </div>
+      </div> 
     </div>
+<button id="submit">Submit</button>
 
-    <form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Log Out</button>
-</form>
+
+        <button id="logout">Log Out</button>
+
+  	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha512-U6K1YLIFUWcvuw5ucmMtT9HH4t0uz3M366qrF5y4vnyH6dgDzndlcGvH/Lz5k8NFh80SN95aJ5rqGZEdaQZ7ZQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" integrity="sha512-+am5K7BRTV+gp0pLhviijcMf4SZCUS2ZMhExySUyQpyC7UQbxuAU99AGcu7iS3L/3KXJolQk5c+MehHezYKYdg==" crossorigin="anonymous" /> 
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+      <script>$(".ui.dropdown").dropdown()</script>
+
