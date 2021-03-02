@@ -77,7 +77,7 @@ module.exports = function(app) {
 
 
 
-/*   app.post("/api/firstlogin", function(req, res) {
+app.post("/api/firstlogin", function(req, res) {
     db.Usergoals.create({
       email: req.body.email,
       password: req.body.password
@@ -88,10 +88,15 @@ module.exports = function(app) {
       .catch(function(err) {
         res.status(401).json(err);
       });
-  }); */
+  }); 
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/login");
+  });
+
+  app.post("/logout", function(req, res) {
     req.logout();
     res.redirect("/login");
   });
@@ -110,31 +115,6 @@ module.exports = function(app) {
       });
     }
   });
-
-  //Notetaker Routes
-  app.get("/api/notes", function(req, res) {
-    res.json(getJSON());
-  });
-
-
-  app.post("/api/notes", function(req, res) {
-    const notes = getJSON()
-    let newNote = req.body
-    newNote.id = noteData.length-1
-    notes.push(newNote)
-    fs.writeFileSync("./db/db.json", JSON.stringify(notes), "UTF-8")
-    res.json(newNote)
-  });
-
-  app.delete("/api/notes/:id", function(req, res) {
-    const notes = getJSON()
-    const id = parseInt(req.params.id)
-    console.log(id)
-    const filteredNotes = notes.filter(note => note.id !== id)
-    console.log(filteredNotes)
-    fs.writeFileSync("./db/db.json", JSON.stringify(filteredNotes), "UTF-8")
-    res.sendStatus(200)
-  })
 };
 
 
@@ -249,17 +229,25 @@ fetch('members/2')
 
 
 
-    ///In handlebars ID in the answerspots 
-    //in the public/js pulling the values that are inputted 
+  
+/* 
 
 
-    //Step 1: user fills out form 
-        //goal
-        //frequency per week
-        //how many weeks
 
-    //Step 2 - 
-//set variable USer GOALS 
+3 - Send a get request with this object to a route (example: /api/goals)
 
-///
-
+4- In backend for /api/goals, the req.body should have the userGoals object.
+Update for user where you update the goalId, frequency, and weeks 
+User table:
+email,
+password,
+goalId,
+frequency,
+weeks
+5 - Use Sequelize to update the user table with this data
+6 Ajax get to an api route (/api/goals), needs to have an id sent in params, .then(response => do whatever with the response
+response.data.email
+response.data.password
+response.data.goalId)
+7. For backend, use /api/goals for get method to send the data they need
+db.User.findOne({ where: { id: req.params.id}}, include: [db.Goals]).then(results => res.json(results)) */

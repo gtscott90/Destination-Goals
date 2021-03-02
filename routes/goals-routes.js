@@ -30,11 +30,12 @@ module.exports = function(app) {
     res.render("../views/register.handlebars");
   });
 
+
 /*   app.post("/register", isAuthenticated, function(req, res) {
     res.redirect("/firstlogin");
   });
  */
-  app.get("/firstlogin", isAuthenticated, function(req, res) {
+  app.get("/firstlogin", function(req, res) {
     res.render("../views/index.handlebars");
   });
 
@@ -43,8 +44,8 @@ module.exports = function(app) {
     //THIS IS WHERE USER INFORMATION WILL POPULATE THE CALENDAR 
     // Get request using Sequelize (db.FindAll() "where Author ID equals 2" for what GOAL user set and pull milestones
     // then - as a Promise -  have another GET request  )
-    db.findAll()
-
+  /*   db.findAll()
+ */
     res.render("../views/goals.handlebars");
   });
 
