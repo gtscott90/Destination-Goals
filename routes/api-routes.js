@@ -3,6 +3,7 @@ var db = require("../models");
 var passport = require("../config/passport");
 var fs = require('fs')
 var noteData = require("../db/db.json");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 function getJSON() {
   return JSON.parse(fs.readFileSync("./db/db.json", "UTF-8"))
@@ -72,16 +73,10 @@ module.exports = function(app) {
 
 
 
-
-
-
-
-
-app.post("/api/firstlogin", function(req, res) {
-    db.Usergoals.create({
-      email: req.body.email,
-      password: req.body.password
-    })
+app.post("/api/goals", isAuthenticated, function(req, res) {
+    console.log(req.body)
+    console.log(req.user)
+    db.Goals.create(req.body)
       .then(function() {
         res.redirect(307, "/api/goals");
       })
@@ -243,8 +238,9 @@ email,
 password,
 goalId,
 frequency,
-weeks
+
 5 - Use Sequelize to update the user table with this data
+
 6 Ajax get to an api route (/api/goals), needs to have an id sent in params, .then(response => do whatever with the response
 response.data.email
 response.data.password

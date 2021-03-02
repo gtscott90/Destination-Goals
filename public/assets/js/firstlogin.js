@@ -3,32 +3,25 @@ $(document).ready(function() {
    /*  var loginForm = $("#login"); */
     var goalInput = $(".ui.dropdown").val();
     var frequencyInput = $('input[name="days"]:checked').val();
-    var weeksInput = $('input[name="week"]:checked').val();
 
     var submitBTN = $('#submit')
     var logoutBTN = $("#logout")
 
     submitBTN.on("click", function(event){
-        $.post("/api/goals")
         event.preventDefault();
         var userGoals = {
-            goal: goalInput.val(),
+            goalName: goalInput.val(),
             frequency: frequencyInput.val(),
-            id: user.id //req.params.id//
         } 
-        // goalsData(userGoals.goal, userGoals.frequency, userGoals.id){
-            $.post("/goals", {
-                goal: goal,
-                frequency: frequency,
-                id: id
-            })
+  
+        $.post("/goals", userGoals) 
             .then(function() {
                 window.location.replace("/goals");
             })
             .catch(function(err) {
                 console.log(err)
             });
-        })
+        });
 
     logoutBTN.on("click", function(event){
             $.get("/logout")
