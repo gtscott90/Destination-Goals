@@ -26,9 +26,9 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/signup", function(req, res) {
+/*   app.get("/signup", function(req, res) {
     res.render("../views/register.handlebars");
-  });
+  }); */
 
 
 /*   app.post("/register", isAuthenticated, function(req, res) {
