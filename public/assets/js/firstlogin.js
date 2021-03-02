@@ -13,6 +13,7 @@ $(document).ready(function() {
             goalName: goalInput.val(),
             frequency: frequencyInput.val(),
         } 
+  
         $.post("/goals", userGoals) 
             .then(function() {
                 window.location.replace("/goals");
