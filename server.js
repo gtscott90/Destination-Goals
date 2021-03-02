@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 var db = require("./models");
-
+ 
 /* const bodyParser = require('body-parser');
 
 //body parser middleware
@@ -45,10 +45,6 @@ const PORT = process.env.PORT || 8080;
 // };
 
 
-
-
-
-/* const users = [];  */
 
 const exphbs = require('express-handlebars');
 

@@ -1,16 +1,22 @@
-/*  const { INTEGER } = require("sequelize/types"); */
-
-module.exports =  function(sequelize, DataTypes) {
-    var goals = sequelize.define("Goals", {
+ 
+ module.exports =  function(sequelize, DataTypes) {
+    var Goals = sequelize.define("Goals", {
         // The email cannot be null, and must be a proper email before creation
-        goal_name: {
+        goalName: {
           type: DataTypes.STRING,
           allowNull: false,
         },
         frequency: {
             type: DataTypes.INTEGER,
             allowNull: false, 
-        }
+        },
     });
-    return goals;
-}
+ /*    Goals.associate = (models) => {
+        Goals.belongsTo(models.Users, {
+            foreignKey: {
+              allowNull: false,
+            },
+          });
+        } */
+        return Goals;
+      };     
