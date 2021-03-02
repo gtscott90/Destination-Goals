@@ -1,3 +1,28 @@
-h1 {
-    color: red;
+
+#goalsHeader {
+    padding: 10px;
+    font-weight: bold;
+    font-family:  cursive;
+    color:#fb4c1f;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-style: solid;
+
 }
+
+body {
+    background-color: #c2d1e5;
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
