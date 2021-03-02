@@ -7,7 +7,6 @@ var noteData = require("../db/db.json");
 function getJSON() {
   return JSON.parse(fs.readFileSync("./db/db.json", "UTF-8"))
 }
-
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -109,31 +108,6 @@ module.exports = function(app) {
       });
     }
   });
-
-  //Notetaker Routes
-  app.get("/api/notes", function(req, res) {
-    res.json(getJSON());
-  });
-
-
-  app.post("/api/notes", function(req, res) {
-    const notes = getJSON()
-    let newNote = req.body
-    newNote.id = noteData.length-1
-    notes.push(newNote)
-    fs.writeFileSync("./db/db.json", JSON.stringify(notes), "UTF-8")
-    res.json(newNote)
-  });
-
-  app.delete("/api/notes/:id", function(req, res) {
-    const notes = getJSON()
-    const id = parseInt(req.params.id)
-    console.log(id)
-    const filteredNotes = notes.filter(note => note.id !== id)
-    console.log(filteredNotes)
-    fs.writeFileSync("./db/db.json", JSON.stringify(filteredNotes), "UTF-8")
-    res.sendStatus(200)
-  })
 };
 
 
@@ -260,5 +234,10 @@ fetch('members/2')
     //Step 2 - 
 //set variable USer GOALS 
 
-///
+//3-  Send a GET request with this object to a route (example /api/goals)
+
+
+//4- in backend for /api/goals/ the req.body, should have the userGoals objects 
+/// goal: r///bulk insert to seed data 
+
 
