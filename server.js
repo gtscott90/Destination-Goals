@@ -40,7 +40,7 @@ connection = mysql.createConnection({
  port: 3306,
    user: 'root',  
    password: process.env.PASSWORD,
-  database: "goals_DB"
+  database: "goals_db"
  });
  };
 
