@@ -8,9 +8,11 @@
 	<link rel="stylesheet" href="../../public/assets/css/style-notes.css">
 		<link rel="stylesheet" href="../../public/assets/css/style.css" type="text/css" />
     <script src="/public/assets/css/style.css"></script>
-<h2>Hi {{user.name}}!</h2>
+<div class="ui grid">
+ 
 <div class="three wide column"></div>
 <div class="ten wide column">
+   <h2>Hi Joel{{req.body.name}}!</h2>
 <div class="ui form">
   <div class="field">
       <label>What goal would you like to set?</label>
@@ -27,7 +29,7 @@
           </div>
       </div>
   </div>
-</div>
+
 
 
 <!-- CHECK BOX -->
@@ -106,7 +108,13 @@
       </div> 
     </div>
 <button id="submit">Submit</button>
-</div><div class="three wide column"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="three wide column"></div>
 
 
         <button id="logout">Log Out</button>

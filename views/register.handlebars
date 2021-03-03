@@ -10,13 +10,14 @@
   <img class="center" src="https://media0.giphy.com/media/3oEdv9QpEXixOiH5xC/source.gif">
   </div>
 </div>
+<div class="ui grid">
     <div class="three wide column"></div>
     <div class="three wide column"></div>
-<div class="ten wide column">
+<div style="justify-items: left;" class="ten wide column">
 <h1 class="center">Register</h1>
 <form class="center signup" action="/signup" method="POST"> 
         <label for="name" id="name-input">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" placeholder="Name" required>
   
     <div> 
         <label for="email">Email</label>
@@ -26,10 +27,13 @@
         <label for="password">Password</label>
         <input type="password" id="password-input" name="password" placeholder="Password" required>
     </div>
-    <button id="register" type="submit">Register</button>
- <div><h3>{{user.message}}</h3></div> 
+    <button id="register" style="justify-items: center" name="submit">Register</button>
+ <div><h3>{{user.message}}</h3>
+   <p>Or log in <a href="/login">here</a></p>
+   </div> 
       <div class="three wide column"></div>
+    
 
  </form> 
+ </div>
  <br />
-        <p>Or log in <a href="/login">here</a></p>

@@ -22,6 +22,11 @@ $(document).ready(function() {
         {
           title: 'Intro to HTML',
           start: '2021-02-04',
+          end: '2021-02-04'
+        },
+        {
+          title: 'Advanced HTML',
+          start: '2021-02-06',
           end: '2021-02-06'
         },
         {
@@ -58,5 +63,4 @@ $(document).ready(function() {
         }
       ]
     });
-    
-  });
+  }); 
