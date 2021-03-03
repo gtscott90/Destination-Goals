@@ -44,3 +44,4 @@ INSERT INTO milestones (id, milestone_num, title, goal_id) VALUES (31, 4, "Intro
 INSERT INTO milestones (id, milestone_num, title, goal_id) VALUES (32, 5, "Basic scales using words",  5);
 INSERT INTO milestones (id, milestone_num, title, goal_id) VALUES (33, 6, "Advanced Scales using words",  5);
 INSERT INTO milestones (id, milestone_num, title, goal_id) VALUES (34, 7, "Practice with a simple song",  5);
+
