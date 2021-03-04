@@ -11,12 +11,9 @@
             allowNull: false, 
         },
     });
-   Goals.associate = (models) => {
-        Goals.belongsTo(models.User, {
-            foreignKey: {
-              allowNull: false,
-            },
-          });
-        } 
-        return Goals;
+    Goals.associate = (models) => {
+      Goals.hasMany(models.milestones, {
+        });
+      } 
+      return Goals
       };     

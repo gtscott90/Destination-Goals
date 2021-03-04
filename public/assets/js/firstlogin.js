@@ -1,7 +1,6 @@
 $(document).ready(function() {
     // Getting references to our form and inputs
    /*  var loginForm = $("#login"); */
-    var goalInput = $(".ui.dropdown").val();
     var frequencyInput = $('input[name="days"]:checked').val();
 
     var submitBTN = $('#submit')
@@ -9,19 +8,22 @@ $(document).ready(function() {
 
     submitBTN.on("click", function(event){
         event.preventDefault();
+        var goalId = $(".menu .active").attr("data-id");
         var userGoals = {
-            goalName: goalInput.val(),
-            frequency: frequencyInput.val(),
+            goalId: goalId
         } 
   
         $.post("/goals", userGoals) 
-            .then(function() {
-                window.location.replace("/goals");
+            .then(function(goals) {
+                if (goals.id){
+                    window.location.replace("/goals");
+                } 
             })
             .catch(function(err) {
                 console.log(err)
             });
         });
+
 
     logoutBTN.on("click", function(event){
             $.get("/logout")

@@ -6,6 +6,7 @@ var path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
+const userMilestones = require("../models/userMilestones");
 
 module.exports = function(app) {
 
@@ -45,53 +46,58 @@ module.exports = function(app) {
   });
  */
   app.get("/firstlogin", function(req, res) {
-    res.render("../views/index.handlebars");
+    db.Goals.findAll()
+    .then(goals => {
+       res.render("index", {goals: goals} 
+      ) 
+    })
   });
 
-
   app.get("/goals", /* isAuthenticated, */ function(req, res) {
-    res.render("../views/goals.handlebars");
+    ///grab (goals) that associate to that user
+    ///push into the handlebars 
+    //when create UserGoal
+    res.render("goals");
   });
 
   app.get("/goals:id", function(req, res) {
      //// app.get(/goals:id)
  /////get ID from front end and search by db.findOne;
- ////////req.params.id
-    var renderInfo = {}
-    Goals.findOne({
+ ////////req.params.ids
+    db.Goals.findOne({
         where: {
             goalId: req.params.id
-        }
-   /*  }).then(userData => {
-        var milestones = userData.milestones
-        renderInfo.user = userData
-        Milestones.findAll({
-            where: {
-                goal_id: req.param.id
-            }
-        })
-    }).then(steps => {
-        renderInfo.activitySteps = steps
-        res.render('goals', { render_info: renderInfo })
-    }) */
+        }, include: [
+          db.milestones
+        ]
+   }).then(userGoalWithMilestones => {
+     console.log(userGoalWithMilestones)
+    const data = { 
+    } 
 })
   });
 
-  app.post("/goals", function(req, res){
-    db.Goals.create({
-  
-            goalName: req.body.goalName,
-            frequency: req.body.frequency,
-            userId: req.user.id 
-          })
-            .then(function(goals) {
-             
-            })
-            .catch(function(err) {
-             
-            });
-        });
+
+  app.get("/samples", function(req, res) {
+    db.Goals.findAll({
+    include: [
+      db.milestones
+    ]
+    }).then(data => {
+      res.json(data);
+    })
   })
+
+ app.post("/goals", isAuthenticated, function(req, res){
+        db.UserGoal.create({
+          UserId: req.user.id,
+          GoalId: req.body.goalId
+        })
+        .then(goal =>{
+          res.json(goal)
+        })
+      });
+
 
 
 

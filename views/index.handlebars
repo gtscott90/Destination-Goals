@@ -21,11 +21,9 @@
           <i class="dropdown icon"></i>
           <div class="default text">What goal would you like to set?</div>
           <div class="menu">
-              <div class="item" data-value="1" id="goal1" data-id="goal1">Learn to Play the Piano</div></a>
-              <div class="item" data-value="0" id="goal2" data-id="goal2">Learn How to Speak Spanish</div>
-              <div class="item" data-value="0" id="goal3" data-id="goal3">Learn How to Bake Bread</div>
-              <div class="item" data-value="0" id="goal4" data-id="goal4">Learn How to Make a Web Page</div>
-              <div class="item" data-value="0" id="goal5" data-id="goal5">Learn How To Sing</div>
+            {{#each goals}}
+              <div class="item" id="goal1" data-id="{{dataValues.id}}">{{dataValues.goalName}}</div>
+            {{/each}}
           </div>
       </div>
   </div>

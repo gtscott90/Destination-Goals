@@ -17,7 +17,6 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
-    // The password cannot be null
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -33,7 +32,9 @@ module.exports = function(sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
    User.associate = (models) => {
-    User.hasMany(models.Goals);
+    User.hasMany(models.UserGoal, {
+        onDelete: 'cascade',
+    });
   };
   return User;
 };
