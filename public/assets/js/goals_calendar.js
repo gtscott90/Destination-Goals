@@ -10,7 +10,7 @@ $(document).ready(function() {
         center: 'title',
         right: 'month,basicWeek,basicDay'
       },
-      defaultDate: '2021-02-12',
+      defaultDate: '2021-02-12', /// Variable to call Moment to grab current date 
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       eventLimit: true, // allow "more" link when too many events

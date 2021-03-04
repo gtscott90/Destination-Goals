@@ -11,12 +11,12 @@
             allowNull: false, 
         },
     });
- /*    Goals.associate = (models) => {
-        Goals.belongsTo(models.Users, {
+   Goals.associate = (models) => {
+        Goals.belongsTo(models.User, {
             foreignKey: {
               allowNull: false,
             },
           });
-        } */
+        } 
         return Goals;
       };     

@@ -1,4 +1,5 @@
 // Requiring path to so we can use relative routes to our HTML files
+const { notEqual } = require("assert");
 const { time } = require("console");
 var path = require("path");
 
@@ -49,13 +50,67 @@ module.exports = function(app) {
 
 
   app.get("/goals", /* isAuthenticated, */ function(req, res) {
+    res.render("../views/goals.handlebars");
+  });
+
+  app.get("/goals:id", function(req, res) {
+     //// app.get(/goals:id)
+ /////get ID from front end and search by db.findOne;
+ ////////req.params.id
+    var renderInfo = {}
+    Goals.findOne({
+        where: {
+            goalId: req.params.id
+        }
+   /*  }).then(userData => {
+        var milestones = userData.milestones
+        renderInfo.user = userData
+        Milestones.findAll({
+            where: {
+                goal_id: req.param.id
+            }
+        })
+    }).then(steps => {
+        renderInfo.activitySteps = steps
+        res.render('goals', { render_info: renderInfo })
+    }) */
+})
+  });
+
+  app.post("/goals", function(req, res){
+    db.Goals.create({
+  
+            goalName: req.body.goalName,
+            frequency: req.body.frequency,
+            userId: req.user.id 
+          })
+            .then(function(goals) {
+             
+            })
+            .catch(function(err) {
+             
+            });
+        });
+  })
+
+
+
     //THIS IS WHERE USER INFORMATION WILL POPULATE THE CALENDAR 
     // Get request using Sequelize (db.FindAll() "where Author ID equals 2" for what GOAL user set and pull milestones
     // then - as a Promise -  have another GET request  )
-  /*   db.findAll()
- */
-    res.render("../views/goals.handlebars");
-  });
+
+  /*   db.findAll()---milestones under the chosen goal
+    //front end pull (data-id: goalid from db)
+    //send to handlebars 
+ *////inside handlebars: for each loop block to loop through goals to pull the one selected 
+ /// on each data-id goal (a href("/goals/5"))
+
+
+ /////
+ ///app.post("/goals")- create User Goal - used by db.goals 
+   //UserId: req.user.id 
+ ////in creation reference id:  UserId: req.user.id 
+
 
 };
 
