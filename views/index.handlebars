@@ -12,7 +12,7 @@
  
 <div class="three wide column"></div>
 <div class="ten wide column">
-   <h2>Hi Joel{{req.body.name}}!</h2>
+   <h2>Hi {{req.body.name}}!</h2>
 <div class="ui form">
   <div class="field">
       <label>What goal would you like to set?</label>
@@ -21,11 +21,9 @@
           <i class="dropdown icon"></i>
           <div class="default text">What goal would you like to set?</div>
           <div class="menu">
-              <div class="item" data-value="1" id="goal1" >Learn to Play the Piano</div>
-              <div class="item" data-value="0" id="goal2">Learn How to Speak Spanish</div>
-              <div class="item" data-value="0" id="goal3">Learn How to Bake Bread</div>
-              <div class="item" data-value="0" id="goal4">Learn How to Make a Web Page</div>
-              <div class="item" data-value="0" id="goal5">Learn How To Sing</div>
+            {{#each goals}}
+              <div class="item" id="goal1" data-id="{{dataValues.id}}">{{dataValues.goalName}}</div>
+            {{/each}}
           </div>
       </div>
   </div>
@@ -70,39 +68,39 @@
     <label for="days">How many times per week can you work on this goal?</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input id="one" type="radio" name="days" tabindex="0" class="hidden" value="one" required>
+        <input data-id="one" id="one" type="radio" name="days" tabindex="0" class="hidden" value="one" required>
         <label for="one">Once A Week</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input id="two" type="radio" name="days" tabindex="0" class="hidden" value="two">
+        <input data-id="two" id="two" type="radio" name="days" tabindex="0" class="hidden" value="two">
         <label for="two" >Twice A Week</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input id="three" type="radio" name="days" tabindex="0" class="hidden" value="three">
+        <input data-id="three" id="three" type="radio" name="days" tabindex="0" class="hidden" value="three">
         <label for="three">Three Times A Week</label>
       </div>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
-        <input id="four" type="radio" name="days" tabindex="0" class="hidden" value="four">
+        <input data-id="four" id="four" type="radio" name="days" tabindex="0" class="hidden" value="four">
         <label for="four">Four Times A Week</label>
     <div class="field">
       <div class="ui radio checkbox">
-        <input id="five" type="radio" name="days" tabindex="0" class="hidden" value="five">
+        <input data-id="five" id="five" type="radio" name="days" tabindex="0" class="hidden" value="five">
         <label for="five">Five Times A Week</label>
       </div>
        <div class="field">
       <div class="ui radio checkbox">
-        <input id="six" type="radio" name="days" tabindex="0" class="hidden" value="six">
+        <input data-id="six" id="six" type="radio" name="days" tabindex="0" class="hidden" value="six">
         <label for="six">Six Times A Week</label>
       </div>
        <div class="field">
       <div class="ui radio checkbox">
-        <input id="seven" type="radio" name="days" tabindex="0" class="hidden" value="seven">
+        <input data-id="seven" id="seven" type="radio" name="days" tabindex="0" class="hidden" value="seven">
         <label for="seven">Everyday</label>
       </div>
       </div> 

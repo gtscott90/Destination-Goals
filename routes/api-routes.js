@@ -244,6 +244,10 @@ fetch('members/2')
         })
     })
 
+
+
+
+
  */
     // TODO: need to be attached to the models folder 
     // app.get('/api/goals/:id', (req, res) => {
