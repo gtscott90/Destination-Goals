@@ -2,7 +2,7 @@
   "name": "Hashtag Goals",
   "version": "1.0.0",
   "description": "",
-  "main": "node server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -40,7 +40,6 @@
     "passport-local": "^1.0.0",
     "sequelize": "^5.22.3"
   },
-
   "devDependencies": {
     "nodemon": "^2.0.7",
     "sequelize-cli": "^6.2.0"
