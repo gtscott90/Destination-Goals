@@ -17,11 +17,13 @@
   "bugs": {
     "url": "https://github.com/jacquelinerodney/project2/issues"
   },
+  "engine": {
+    "node": "14.15.4"
+  },
   "homepage": "https://github.com/jacquelinerodney/project2#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "@types/sequelize": "^4.28.9",
-    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
