@@ -6,22 +6,22 @@ module.exports =
   "development": {
     "username": "root",
     "password": process.env.PASSWORD,
-    "database": "goals_db",
-    "host": "127.0.0.1",
+    "database": "goals_DB",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": process.env.PASSWORD,
-    "database": "goals_db",
-    "host": "127.0.0.1",
+    "database": "goals_DB",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": process.env.PASSWORD,
-    "database": "goals_db",
-    "host": "127.0.0.1",
+    "database": "goals_DB",
+    "host": "localhost",
     "dialect": "mysql"
   }
 }

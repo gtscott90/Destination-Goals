@@ -10,12 +10,12 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const mysql = require('mysql');
-var connection;
+// var connection;
 const bodyParser = require('body-parser');
 const path = require('path');
-app.use(express.static('public'))
-app.use('/public', express.static(path.join(__dirname, 'public')))
 
+var db = require("./models");
+ 
 /* const bodyParser = require('body-parser');
 
 //body parser middleware
@@ -45,9 +45,6 @@ connection = mysql.createConnection({
 }; */
 
 
-var db = require("./models");
-
-/* const users = [];  */
 
 const exphbs = require('express-handlebars');
 
@@ -56,24 +53,30 @@ app.set('view engine', 'handlebars');
 
 // Requiring our routes
 
-require("./routes/goals-routes")(app);
-require("./routes/XXXXdestinationController")(app);
-require("./routes/api-routes.js")(app);
 
 require("./config/passport", passport, db.User);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: false}));
+// app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public'))
+app.use('/public', express.static(path.join(__dirname, 'public')))
 app.use(flash())
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
 }))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
+
+
+require("./routes/goals-routes")(app);
+require("./routes/XXXXdestinationController")(app);
+require("./routes/api-routes.js")(app);
 
 
 /* 
@@ -137,10 +140,7 @@ function checkNotAuthenticated(req, res, next) {
 } */
 
 
-
-
-
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force: false}).then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });

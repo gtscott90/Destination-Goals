@@ -1,5 +1,8 @@
 $(document).ready(function() {
-    
+/*   $.get("/api/user_data").then(function(data) {
+    $(".member-name").text(data.email);
+  }); */
+  console.log($('#calendar'))
   
     $('#calendar').fullCalendar({
       header: {
@@ -7,66 +10,57 @@ $(document).ready(function() {
         center: 'title',
         right: 'month,basicWeek,basicDay'
       },
-      defaultDate: '2021-02-12',
+      defaultDate: '2021-02-12', /// Variable to call Moment to grab current date 
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       events: [
         {
-          title: 'All Day Event',
+          title: 'Introduction to the Web',
           start: '2021-02-01'
         },
         {
-          title: 'Long Event',
-          start: '2021-02-07',
-          end: '2021-02-10'
+          title: 'Intro to HTML',
+          start: '2021-02-04',
+          end: '2021-02-04'
+        },
+        {
+          title: 'Advanced HTML',
+          start: '2021-02-06',
+          end: '2021-02-06'
         },
         {
           id: 999,
-          title: 'Repeating Event',
+          title: 'Intro to CSS',
           start: '2021-02-09T16:00:00'
         },
         {
           id: 999,
-          title: 'Repeating Event',
+          title: 'CSS Layouts',
           start: '2021-02-16T16:00:00'
         },
         {
-          title: 'Conference',
+          title: 'Intro to Javascript',
           start: '2021-02-11',
           end: '2021-02-13'
         },
         {
-          title: 'Meeting',
-          start: '2021-02-12T10:30:00',
-          end: '2021-02-12T12:30:00'
+          title: 'Variables and Functions',
+          start: '2021-02-18T10:30:00',
+          end: '2021-02-18T12:30:00'
         },
         {
-          title: 'Lunch',
-          start: '2021-02-12T12:00:00'
+          title: 'Objects and the DOM',
+          start: '2021-02-19T12:00:00'
         },
         {
-          title: 'Meeting',
-          start: '2021-02-12T14:30:00'
+          title: 'Uploading to GitHub',
+          start: '2021-02-22T14:30:00'
         },
         {
-          title: 'Happy Hour',
-          start: '2021-02-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2021-02-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2021-02-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'https://google.com/',
-          start: '2021-02-28'
+          title: 'Publishing your page',
+          start: '2021-02-24T17:30:00'
         }
       ]
     });
-    
-  });
+  }); 

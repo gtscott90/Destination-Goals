@@ -3,6 +3,7 @@ var db = require("../models");
 var passport = require("../config/passport");
 var fs = require('fs')
 var noteData = require("../db/db.json");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 function getJSON() {
   return JSON.parse(fs.readFileSync("./db/db.json", "UTF-8"))
@@ -20,6 +21,7 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
+    console.log(req.body)
     db.User.create({
 /*       name: req.body.name, */
       email: req.body.email,
@@ -64,33 +66,45 @@ module.exports = function(app) {
   */
 
 
+app.get("/login", function(req, res) {
+  // If the user already has an account send them to the members page
+  if (req.user) {
+    res.redirect("/goals");
+  }
+  res.redirect("/");
+});
 
 
 
+app.get("/post", function(req, res) {
+  // If the user already has an account send them to the members page
+  if (req.user) {
+    res.redirect("/goals");
+  }
+  res.redirect("/");
+});
 
 
 
-
-
-
-
-
-
-/*   app.post("/api/firstlogin", function(req, res) {
-    db.Usergoals.create({
-      email: req.body.email,
-      password: req.body.password
-    })
+app.post("/api/goals", isAuthenticated, function(req, res) {
+    console.log(req.body)
+    console.log(req.user)
+    db.Goals.create(req.body)
       .then(function() {
         res.redirect(307, "/api/goals");
       })
       .catch(function(err) {
         res.status(401).json(err);
       });
-  }); */
+  }); 
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/login");
+  });
+
+  app.post("/logout", function(req, res) {
     req.logout();
     res.redirect("/login");
   });
@@ -110,7 +124,7 @@ module.exports = function(app) {
     }
   });
 
-  //Notetaker Routes
+  // Notetaker routes
   app.get("/api/notes", function(req, res) {
     res.json(getJSON());
   });
@@ -230,6 +244,10 @@ fetch('members/2')
         })
     })
 
+
+
+
+
  */
     // TODO: need to be attached to the models folder 
     // app.get('/api/goals/:id', (req, res) => {
@@ -248,17 +266,26 @@ fetch('members/2')
 
 
 
-    ///In handlebars ID in the answerspots 
-    //in the public/js pulling the values that are inputted 
+  
+/* 
 
 
-    //Step 1: user fills out form 
-        //goal
-        //frequency per week
-        //how many weeks
 
-    //Step 2 - 
-//set variable USer GOALS 
+3 - Send a get request with this object to a route (example: /api/goals)
 
-///
+4- In backend for /api/goals, the req.body should have the userGoals object.
+Update for user where you update the goalId, frequency, and weeks 
+User table:
+email,
+password,
+goalId,
+frequency,
 
+5 - Use Sequelize to update the user table with this data
+
+6 Ajax get to an api route (/api/goals), needs to have an id sent in params, .then(response => do whatever with the response
+response.data.email
+response.data.password
+response.data.goalId)
+7. For backend, use /api/goals for get method to send the data they need
+db.User.findOne({ where: { id: req.params.id}}, include: [db.Goals]).then(results => res.json(results)) */
