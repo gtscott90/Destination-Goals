@@ -10,29 +10,31 @@ const userMilestones = require("../models/userMilestones");
 
 module.exports = function(app) {
 
-  app.get("/", function(req, res) {
+  app.get(["/", "/signup"], function(req, res) {
     // If the user already has an account send them to the goals page
     if (req.user) {
-      res.redirect("/goals");
+      res.redirect("/goals")
     }
-    res.render("../views/register.handlebars"); 
+    res.render("register"); 
   });
+ 
+ /*  app.get("/signup", function(req, res){
+    res.render("register")
+  }) */
+
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the goals page
     if (req.user) {
-      res.redirect("/firstlogin");
+      res.redirect("/goals");
     }
-    res.render("../views/login.handlebars"); 
+    res.render("login"); 
   });
 
-  app.get("/signup", function(req, res){
-    res.render("../views/register.handlebars")
-  })
-
-  app.post("/signup", function(req, res){
-    res.render("../views/index.handlebars")
-  })
+  
+/*   app.post("/signup", function(req, res){
+    res.render("login")
+  }) */
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
@@ -45,37 +47,23 @@ module.exports = function(app) {
     res.redirect("/firstlogin");
   });
  */
-  app.get("/firstlogin", function(req, res) {
+  app.get("/firstlogin", isAuthenticated, function(req, res) {
+    console.log(req.user)
     db.Goals.findAll()
     .then(goals => {
-       res.render("index", {goals: goals} 
-      ) 
+       res.render("index", {goals: goals} ) 
     })
   });
 
-  app.get("/goals", /* isAuthenticated, */ function(req, res) {
+  app.get("/goals", isAuthenticated, function(req, res) {
+    console.log(req.user)
     ///grab (goals) that associate to that user
     ///push into the handlebars 
     //when create UserGoal
     res.render("goals");
   });
 
-  app.get("/goals:id", function(req, res) {
-     //// app.get(/goals:id)
- /////get ID from front end and search by db.findOne;
- ////////req.params.ids
-    db.Goals.findOne({
-        where: {
-            goalId: req.params.id
-        }, include: [
-          db.milestones
-        ]
-   }).then(userGoalWithMilestones => {
-     console.log(userGoalWithMilestones)
-    const data = { 
-    } 
-})
-  });
+ 
 
 
   app.get("/samples", function(req, res) {

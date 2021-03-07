@@ -74,9 +74,8 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 
-require("./routes/goals-routes")(app);
-require("./routes/XXXXdestinationController")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/goals-routes")(app);
 
 
 /* 

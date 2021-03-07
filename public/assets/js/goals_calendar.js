@@ -2,6 +2,8 @@ $(document).ready(function() {
 /*   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
   }); */
+
+  $.get("/goals/" + )
   console.log($('#calendar'))
   
     $('#calendar').fullCalendar({
@@ -14,6 +16,8 @@ $(document).ready(function() {
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       eventLimit: true, // allow "more" link when too many events
+      ///AJAX Call to populate with API data 
+      //week 6 - activity 2//
       events: [
         {
           title: 'Introduction to the Web',
