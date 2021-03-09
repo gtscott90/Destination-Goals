@@ -13,6 +13,8 @@ const mysql = require('mysql');
 // var connection;
 const bodyParser = require('body-parser');
 const path = require('path');
+var moment = require('moment'); // require
+moment().format(); 
 
 var db = require("./models");
  
@@ -74,9 +76,8 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 
-require("./routes/goals-routes")(app);
-require("./routes/XXXXdestinationController")(app);
 require("./routes/api-routes.js")(app);
+require("./routes/goals-routes")(app);
 
 
 /* 

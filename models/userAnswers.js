@@ -13,16 +13,7 @@
       password: {
         type: DataTypes.STRING,
         allowNull: false
-      } 
-
-
-/* 
-(bigGoal ID)
-(times per week)
-(how many weeks)
-(take user ID and join Goal-id with goal_id on Milestones table)
- */
-
+      }
     });
   return UserAnswer;
 }; 

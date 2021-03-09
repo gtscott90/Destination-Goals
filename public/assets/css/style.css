@@ -1,4 +1,11 @@
- #goalsHeader {
+body {
+background-image: url("../goalsBackground.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+font-family: 'Lobster', cursive;
+}
+
+#goalsHeader {
     padding: 10px;
     font-weight: bold;
     font-family:  cursive;
@@ -7,13 +14,9 @@
     text-align: center;
     text-decoration: underline;
     text-decoration-style: solid;
+    padding-top: 20px;
 }
-
-body {
-    background-color: #c2d1e5;
-    font-family: 'Open Sans', sans-serif;
-} 
- 
+    
 p {
     text-align: center;
 }
@@ -21,5 +24,22 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
+    }
 
+#email-input {
+opacity: 0.9;
+}
+
+#password-input {
+opacity: 0.9;
+}
+
+.glass {
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 5px solid rgba(255,255,255,0.2);
+}
+
+.registerHere {
+    text-shadow: .5px .5px 1px #000000;
+}

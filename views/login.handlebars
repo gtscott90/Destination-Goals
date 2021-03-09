@@ -6,22 +6,42 @@
   <p>So what do you want to learn? Where do you want to end up? </p>
 </div>
  --}}
-<h1>Login</h1>
-<form class="login" action="/login" method="POST"> 
-{{!--     <div>
+ <div class="ui grid">
+     <div class="sixteen wide column"></div>
+      <div class="sixteen wide column"></div>
+       <div class="sixteen wide column"></div>
+               <div class="sixteen wide column"></div>
+    <div class="five wide column"></div>
+<div style="justify-items: center;" class="three wide column">
 
-    
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-    </div> --}}
-    <div>
-        <label for="email">Email</label>
-        <input type="email" id="email-input" name="email" required>
+{{!-- <div class="ui form">
+  <div class="two fields">
+    <div class="field error">
+      <label>First Name</label>
+      <input placeholder="First Name" type="text">
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password-input" name="password" required>
+    <div class="field">
+      <label>Last Name</label>
+      <input placeholder="Last Name" type="text">
     </div>
-    <button id="login" type="submit">Login</button>
- </form>
-<a href="/">Register</a>
+  </div> --}}
+
+
+    <div class="ui form transparent focus">
+      <h1 class="center">Login</h1>
+      <form class="login" action="/login" method="POST"> 
+        <label for="email"></label>
+        <input type="email" id="email-input" name="email" placeholder="email" required>
+        <label for="password"></label>
+        <input type="password" id="password-input" name="password" placeholder="password" required> 
+         </form>
+    <br>
+    <button id="login" type="submit" class="ui primary button">Login</button>
+<h5> No account? &nbsp; <a class="registerHere" href="/">    Register here</a></h5>
+ </div>
+ <div class="eight wide column"></div>
+</div>
+ </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha512-U6K1YLIFUWcvuw5ucmMtT9HH4t0uz3M366qrF5y4vnyH6dgDzndlcGvH/Lz5k8NFh80SN95aJ5rqGZEdaQZ7ZQ==" crossorigin="anonymous"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

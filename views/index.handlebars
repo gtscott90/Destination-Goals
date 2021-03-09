@@ -12,7 +12,7 @@
  
 <div class="three wide column"></div>
 <div class="ten wide column">
-   <h2>Hi {{req.body.name}}!</h2>
+   <h2>Hi {{User.name}}!</h2>
 <div class="ui form">
   <div class="field">
       <label>What goal would you like to set?</label>
@@ -28,9 +28,64 @@
       </div>
   </div>
 
+ <div class="grouped fields">
+    <label for="days">How many times per week can you work on this goal?</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input data-id="one" id="one" type="radio" name="days" tabindex="0" class="hidden" value=7 required>
+        <label for="one">Once A Week</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input data-id="two" id="two" type="radio" name="days" tabindex="0" class="hidden" value=6>
+        <label for="two" >Twice A Week</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input data-id="three" id="three" type="radio" name="days" tabindex="0" class="hidden" value=5>
+        <label for="three">Three Times A Week</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input data-id="four" id="four" type="radio" name="days" tabindex="0" class="hidden" value=4>
+        <label for="four">Four Times A Week</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input data-id="five" id="five" type="radio" name="days" tabindex="0" class="hidden" value=3>
+        <label for="five">Five Times A Week</label>
+      </div>
+       <div class="field">
+      <div class="ui radio checkbox">
+        <input data-id="six" id="six" type="radio" name="days" tabindex="0" class="hidden" value=2>
+        <label for="six">Six Times A Week</label>
+      </div>
+       <div class="field">
+      <div class="ui radio checkbox">
+        <input data-id="seven" id="seven" type="radio" name="days" tabindex="0" class="hidden" value=1>
+        <label for="seven">Everyday</label>
+      </div>
+      </div> 
+    </div>
+<button id="submit">Submit</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="three wide column"></div>
 
 
-<!-- CHECK BOX -->
+        <button id="logout">Log Out</button>
+      <script>$(".ui.dropdown").dropdown()</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha512-U6K1YLIFUWcvuw5ucmMtT9HH4t0uz3M366qrF5y4vnyH6dgDzndlcGvH/Lz5k8NFh80SN95aJ5rqGZEdaQZ7ZQ==" crossorigin="anonymous"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+   <!-- CHECK BOX -->
 
 {{!-- 
  <div class="grouped fields">
@@ -63,58 +118,4 @@
 
 
 <!-- CHECK BOX --> 
-
- <div class="grouped fields">
-    <label for="days">How many times per week can you work on this goal?</label>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input data-id="one" id="one" type="radio" name="days" tabindex="0" class="hidden" value="one" required>
-        <label for="one">Once A Week</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input data-id="two" id="two" type="radio" name="days" tabindex="0" class="hidden" value="two">
-        <label for="two" >Twice A Week</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input data-id="three" id="three" type="radio" name="days" tabindex="0" class="hidden" value="three">
-        <label for="three">Three Times A Week</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input data-id="four" id="four" type="radio" name="days" tabindex="0" class="hidden" value="four">
-        <label for="four">Four Times A Week</label>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input data-id="five" id="five" type="radio" name="days" tabindex="0" class="hidden" value="five">
-        <label for="five">Five Times A Week</label>
-      </div>
-       <div class="field">
-      <div class="ui radio checkbox">
-        <input data-id="six" id="six" type="radio" name="days" tabindex="0" class="hidden" value="six">
-        <label for="six">Six Times A Week</label>
-      </div>
-       <div class="field">
-      <div class="ui radio checkbox">
-        <input data-id="seven" id="seven" type="radio" name="days" tabindex="0" class="hidden" value="seven">
-        <label for="seven">Everyday</label>
-      </div>
-      </div> 
-    </div>
-<button id="submit">Submit</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="three wide column"></div>
-
-
-        <button id="logout">Log Out</button>
-      <script>$(".ui.dropdown").dropdown()</script>
 

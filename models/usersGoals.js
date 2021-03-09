@@ -1,5 +1,9 @@
 module.exports =  function(sequelize, DataTypes) {
     var UserGoals = sequelize.define("UserGoal", {     
+     frequency: {
+        type: DataTypes.INTEGER,
+        allowNull: false, 
+    }, 
     }, 
     {
         freezeTableName: true

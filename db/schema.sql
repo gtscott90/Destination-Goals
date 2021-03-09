@@ -3,18 +3,6 @@ CREATE database goals_DB;
 
 USE goals_DB;
 
-CREATE TABLE User (
- id VARCHAR(150) PRIMARY KEY,
- name VARCHAR(150),
- email VARCHAR(150),
- password VARCHAR(150)
-);
-
-CREATE TABLE bigGoal (
-  id INT auto_increment NOT NULL,
-  goal_name VARCHAR(30) NOT NULL,
-  PRIMARY KEY (id)
-);
 
 CREATE TABLE milestones (
   id INT AUTO_INCREMENT NOT NULL,
@@ -27,5 +15,3 @@ CREATE TABLE milestones (
   PRIMARY KEY (id)
 );
 
-SELECT * FROM bigGoal;
-SELECT * FROM milestones; 

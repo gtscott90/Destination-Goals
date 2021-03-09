@@ -1,9 +1,9 @@
 
 <div class="three wide column"></div>
-<div class="ten wide column">
-<div class="ui raised very padded text container segment">
-  <h2 class="ui header">Destination: A NEW YOU</h2>
-  <p> We’ve all been there before. New Year’s resolutions that didn’t work out. Goals we set for ourselves that we never made any progress on. Things we wanted to learn, but never really knew where to start. So we didn’t. #Hashtag Goals is here to change that, where the destination is a better and more accomplished YOU! #Hashtag Goals takes all of the hassle and stress out of trying to learn something new by curating various goals with tasks and milestones to make the seemingly impossible very much a thing of the past.</p>
+<div class="ten wide column"> 
+<div class="ui inverted segment text container segment">
+  <h2 class="ui header" style="justify-items: left;">Destination: A NEW YOU</h2>
+  <p> We’ve all been there before. New Year’s resolutions that didn’t work out. Goals we set for ourselves that we never made any progress on. Things we wanted to learn, but never really knew where to start. So we didn’t. <br></p><p></p> #Hashtag Goals is here to change that, where the destination is a better and more accomplished YOU! #Hashtag Goals takes all of the hassle and stress out of trying to learn something new by curating various goals with tasks and milestones to make the seemingly impossible very much a thing of the past.</p>
   <br>
     <p class="center">So Where do you want to end up? </p>
   <img class="center" src="https://media0.giphy.com/media/3oEdv9QpEXixOiH5xC/source.gif">
@@ -12,27 +12,21 @@
 <div class="ui grid">
     <div class="three wide column"></div>
     <div class="three wide column"></div>
-<div style="justify-items: left;" class="ten wide column">
-<h1 class="center">Register</h1>
+<div style="justify-items: left;" class="ui mini form three wide column">
+  <h1 class="center">Register</h1>
 <form class="center signup" action="/signup" method="POST"> 
-        <label for="name" id="name-input">Name</label>
-        <input type="text" id="name" name="name" placeholder="Name" required>
-  
-    <div> 
-        <label for="email">Email</label>
+        <label for="name"></label>
+        <input type="text" id="name-input" name="name" placeholder="Name" required>
+        <label for="email"></label>
         <input type="email" id="email-input" name="email" placeholder="Email" required>
-    </div>
-    <div>
-        <label for="password">Password</label>
+        <label for="password"></label>
         <input type="password" id="password-input" name="password" placeholder="Password" required>
-    </div>
-    <button id="register" style="justify-items: center" name="submit">Register</button>
- <div><h3>{{user.message}}</h3>
-   <p>Or log in <a href="/login">here</a></p>
-   </div> 
+    <button id="register" name="submit" class="ui secondary button">Register</button>
+    <br>
+   <h5>Or log in <a class="registerHere" href="/login">here</a></h5>
+   </div>
       <div class="three wide column"></div>
-    
-
- </form> 
  </div>
- <br />
+ </form> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha512-U6K1YLIFUWcvuw5ucmMtT9HH4t0uz3M366qrF5y4vnyH6dgDzndlcGvH/Lz5k8NFh80SN95aJ5rqGZEdaQZ7ZQ==" crossorigin="anonymous"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

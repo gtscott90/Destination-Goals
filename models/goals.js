@@ -6,10 +6,10 @@
           type: DataTypes.STRING,
           allowNull: false,
         },
-        frequency: {
+        /* frequency: {
             type: DataTypes.INTEGER,
             allowNull: false, 
-        },
+        },  */
     });
     Goals.associate = (models) => {
       Goals.hasMany(models.milestones, {
