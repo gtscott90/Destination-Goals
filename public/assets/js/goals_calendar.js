@@ -3,45 +3,70 @@ $(document).ready(function() {
     $(".member-name").text(data.email);
   }); */
 
-  $.get("/goals/" + )
-  console.log($('#calendar'))
-  
+
+  /* var pathArray = window.location.pathname.split('/');
+
+  var id = pathArray[pathArray.length - 1]
+  console.log("The id is", id)
+
+  $.get("/api/users/" + id).then(response => {
+console.log("The user profile is", response.Goal.goalName)
+  console.log("Milestone 1 is", response.goals.milestones[0].milestoneName) */
+ 
     $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
         center: 'title',
         right: 'month,basicWeek,basicDay'
       },
-      defaultDate: '2021-02-12', /// Variable to call Moment to grab current date 
+      defaultDate: moment(), /// Variable to call Moment to grab current date 
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       ///AJAX Call to populate with API data 
-      //week 6 - activity 2//
+      //week 6 - activity 2
+      // get back variables and fill in calendar with response data
+
+      /* 
+        const queryURL = ("/api/goals:id")
+       $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(response);
+        console.log(response.milestoneName);
+        console.log(response.frequency)
+      }); */
+
+      //response.Goals.milestones[0].milestoneName
+
+      
+  
       events: [
         {
-          title: 'Introduction to the Web',
-          start: '2021-02-01'
+          title: 'whatever',//milestoneName
+          start: '2021-03-01' /// moment() + inverse of frequency (7aweek = +1, 1aweek = +7)
+                                // if 
         },
         {
           title: 'Intro to HTML',
           start: '2021-02-04',
-          end: '2021-02-04'
+          end: '2021-03-04' /// inverse of frequency + previous start 
         },
         {
           title: 'Advanced HTML',
-          start: '2021-02-06',
-          end: '2021-02-06'
+          start: '2021-03-06',
+          end: '2021-03-06'
         },
         {
           id: 999,
           title: 'Intro to CSS',
-          start: '2021-02-09T16:00:00'
+          start: '2021-03-09'
         },
         {
           id: 999,
           title: 'CSS Layouts',
-          start: '2021-02-16T16:00:00'
+          start: '2021-02-16'
         },
         {
           title: 'Intro to Javascript',
@@ -55,7 +80,7 @@ $(document).ready(function() {
         },
         {
           title: 'Objects and the DOM',
-          start: '2021-02-19T12:00:00'
+          start: '2021-02-19'
         },
         {
           title: 'Uploading to GitHub',
@@ -67,4 +92,7 @@ $(document).ready(function() {
         }
       ]
     });
-  }); 
+
+  });
+  
+ 

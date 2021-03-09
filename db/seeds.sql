@@ -1,10 +1,10 @@
 -- INSERT INTO tableName (column 1, column 2) VALUES (value for column 1, value for column 2)
 
-INSERT INTO Goals (goalName, frequency, createdAt, updatedAt) VALUES ("Play Piano", 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO Goals (goalName, frequency, createdAt, updatedAt) VALUES ("Learn Spanish", 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO Goals (goalName, frequency, createdAt, updatedAt) VALUES ("Bake Homemade Bread", 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO Goals (goalName, frequency, createdAt, updatedAt) VALUES ("Learn to Make a Web Page", 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO Goals (goalName, frequency, createdAt, updatedAt) VALUES ("Learn to Sing", 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Goals (goalName,  createdAt, updatedAt) VALUES ("Play Piano", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Goals (goalName, createdAt, updatedAt) VALUES ("Learn Spanish",  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Goals (goalName,  createdAt, updatedAt) VALUES ( "Bake Homemade Bread", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Goals (goalName, createdAt, updatedAt) VALUES ("Learn to Make a Web Page",  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Goals (goalName, createdAt, updatedAt) VALUES ("Learn to Sing",  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO milestones (milestoneName, completed, GoalId, createdAt, updatedAt) VALUES ("Understand the Clefs and how they correspond to the Keys on the Piano", false,  1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO milestones (milestoneName, completed, GoalId, createdAt, updatedAt) VALUES ("Learn how to play the Major and Minor Scales", false,  1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
@@ -49,5 +49,6 @@ INSERT INTO Users (name, email, password, createdAt, updatedAt) VALUES ("Joel", 
 INSERT INTO Users (name, email, password, createdAt, updatedAt) VALUES ("Greg", "Greg@gmail.com", "123", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO Users (name, email, password, createdAt, updatedAt) VALUES ("Fred", "Fred@gmail.com", "321", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO UserGoal (UserId, GoalId, createdAt, updatedAt) VALUES (1, 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+
 

@@ -13,41 +13,29 @@ module.exports = function(app) {
   app.get(["/", "/signup"], function(req, res) {
     // If the user already has an account send them to the goals page
     if (req.user) {
-      res.redirect("/goals")
+      res.redirect("/login")
     }
     res.render("register"); 
   });
  
- /*  app.get("/signup", function(req, res){
-    res.render("register")
-  }) */
-
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the goals page
     if (req.user) {
-      res.redirect("/goals");
+      res.redirect("/goals/" + req.user.id);
     }
-    res.render("login"); 
+    res.render("login", {
+      style: 'login.css'
+    }); 
   });
 
-  
-/*   app.post("/signup", function(req, res){
-    res.render("login")
-  }) */
-
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-/*   app.get("/signup", function(req, res) {
-    res.render("../views/register.handlebars");
-  }); */
 
 
 /*   app.post("/register", isAuthenticated, function(req, res) {
     res.redirect("/firstlogin");
   });
  */
-  app.get("/firstlogin", isAuthenticated, function(req, res) {
+  app.get("/firstlogin/", isAuthenticated, function(req, res) {
     console.log(req.user)
     db.Goals.findAll()
     .then(goals => {
@@ -55,15 +43,36 @@ module.exports = function(app) {
     })
   });
 
-  app.get("/goals", isAuthenticated, function(req, res) {
+  app.get("/goals/:id", isAuthenticated, function(req, res) {
     console.log(req.user)
+    db.UserGoal.findOne({
+      where: {
+        UserID: req.params.id
+      }
+    }).then(response => {
+
+      if (!response) {
+        res.redirect("/firstlogin/")
+      }
+      else {
+        res.render("goals");
+      }
+    }) 
     ///grab (goals) that associate to that user
     ///push into the handlebars 
     //when create UserGoal
-    res.render("goals");
+/*     .findOne({ where: { title: 'My Title' } });
+if (project === null) {
+  console.log('Not found!');
+} else {
+  console.log(project instanceof Project); // true
+  console.log(project.title); // 'My Title'
+} */
+
+    ///If UserGoal is empty send back to "/firstlogin"
+
   });
 
- 
 
 
   app.get("/samples", function(req, res) {
@@ -79,7 +88,8 @@ module.exports = function(app) {
  app.post("/goals", isAuthenticated, function(req, res){
         db.UserGoal.create({
           UserId: req.user.id,
-          GoalId: req.body.goalId
+          GoalId: req.body.goalId,
+          frequency: req.body.frequency
         })
         .then(goal =>{
           res.json(goal)

@@ -73,21 +73,31 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
-  app.get("/api/goals/:id", function (req, res) {
+  app.get("/api/users/:id", isAuthenticated, function (req, res) {
     console.log("Are you getting hit?")
 
     //// app.get(/goals:id)
     /////get ID from front end and search by db.findOne;
     ////////req.params.ids
-    db.Goals.findOne({
+    db.UserGoal.findOne({
       where: {
-        goalId: req.params.id
-      }, include: [
-        db.milestones
+        UserId: req.params.id
+      }
+      , include: [
+        db.User, {
+          model: db.User,
+          attributes: ["name"]
+        },
+        db.Goals, {
+          model: db.Goals,
+          include: db.milestones
+        }
       ]
-    }).then(userGoalWithMilestones => {
-      console.log(userGoalWithMilestones)
-      res.json(userGoalWithMilestones)
+    }).then(results => {
+
+      console.log(results)
+      res.json(results)
+
     }).catch(err => res.send(err))
   })
 
@@ -125,6 +135,7 @@ module.exports = function (app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        name: req.user.name,
         email: req.user.email,
         id: req.user.id
       });

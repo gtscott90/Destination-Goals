@@ -28,8 +28,9 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function() {
-        window.location.replace("/goals");
+      .then(function(response) {
+        console.log(response)
+        window.location.replace("/goals/" + response.id);
         // If there's an error, log the error
       })
       .catch(function(err) {

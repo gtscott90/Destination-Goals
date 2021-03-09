@@ -13,6 +13,8 @@ const mysql = require('mysql');
 // var connection;
 const bodyParser = require('body-parser');
 const path = require('path');
+var moment = require('moment'); // require
+moment().format(); 
 
 var db = require("./models");
  

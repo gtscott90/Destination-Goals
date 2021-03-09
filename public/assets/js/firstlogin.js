@@ -1,22 +1,32 @@
 $(document).ready(function() {
     // Getting references to our form and inputs
    /*  var loginForm = $("#login"); */
-    var frequencyInput = $('input[name="days"]:checked').val();
+
+    var pathArray = window.location.pathname.split('/');
+
+    var userId = pathArray[pathArray.length - 1]
+    console.log("The id is", userId)
 
     var submitBTN = $('#submit')
     var logoutBTN = $("#logout")
 
     submitBTN.on("click", function(event){
         event.preventDefault();
+
+    var frequencyInput = $('input[name="days"]:checked').val();
         var goalId = $(".menu .active").attr("data-id");
+        console.log(userId, goalId, frequencyInput)
         var userGoals = {
-            goalId: goalId
-        } 
+            userId: userId,
+            goalId: goalId, 
+            frequency: frequencyInput
+        }
   
         $.post("/goals", userGoals) 
-            .then(function(goals) {
-                if (goals.id){
-                    window.location.replace("/goals");
+            .then(function(response) {
+                if (response){
+                    console.log(response)
+                    window.location.replace("/goals/" + response.UserId);
                 } 
             })
             .catch(function(err) {

@@ -8,7 +8,7 @@ passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
     usernameField: 'email',
-    passwordField: 'password'
+    // passwordField: 'password'
   },
   function(email, password, done) {
     // When a user tries to sign in this code runs
