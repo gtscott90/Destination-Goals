@@ -11,9 +11,9 @@
 <div class="ui grid">
  
 <div class="three wide column"></div>
-<div class="ten wide column">
+<div class="ten wide column" id="questionsContainer" >
    <h2>Hi {{User.name}}!</h2>
-<div class="ui form">
+<div class="ui form" >
   <div class="field">
       <label>What goal would you like to set?</label>
       <div class="ui selection dropdown">
@@ -69,7 +69,7 @@
       </div>
       </div> 
     </div>
-<button id="submit">Submit</button>
+<button id="submit" class="ui primary button">Submit</button>
 </div>
 </div>
 </div>
@@ -79,7 +79,6 @@
 <div class="three wide column"></div>
 
 
-        <button id="logout">Log Out</button>
       <script>$(".ui.dropdown").dropdown()</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha512-U6K1YLIFUWcvuw5ucmMtT9HH4t0uz3M366qrF5y4vnyH6dgDzndlcGvH/Lz5k8NFh80SN95aJ5rqGZEdaQZ7ZQ==" crossorigin="anonymous"></script>
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
