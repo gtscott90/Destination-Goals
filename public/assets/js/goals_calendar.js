@@ -9,21 +9,21 @@ $(document).ready(function() {
   var id = pathArray[pathArray.length - 1]
   console.log("The id is", id)
 
-  $.get("/api/users/" + id).then(response => {
+ $.get("/api/users/" + id).then(response => {
     console.log("The user profile is", response.Goal.goalName)
   console.log("Milestone 1 is", response.Goal.milestones[0].milestoneName)
   console.log("Milestone 1 is", response.frequency)
   console.log("Milestone 1 is", response.createdAt)
     console.log("Milestone 1 is", response)
-  /*    var events = [];
-    for (i = 0; i < response; i++)  {
+    var events = [];
+    for (i = 0; i < response.Goal.milestones.length; i++)  {
       events.push({
         title: response.Goal.milestones[i].milestoneName,
-        start: response.Goal.createdAt,
+        start: moment() + response.Goal.frequency,
+            ///GREG -- We may need further IF statements to say "look at last INDEX[i] and add Frequency number to that"
         end: response.Goal.updatedAt
       }); console.log(events)
-    }
- */
+   
     $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
@@ -36,6 +36,5 @@ $(document).ready(function() {
       eventLimit: true, 
       events: events
     });
-  });
-
-});
+  }})
+})

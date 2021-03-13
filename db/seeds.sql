@@ -51,4 +51,3 @@ INSERT INTO Users (name, email, password, createdAt, updatedAt) VALUES ("Fred", 
 
 
 
-
