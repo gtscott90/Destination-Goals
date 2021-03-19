@@ -13,7 +13,7 @@ $(document).ready(function() {
   console.log("The user profile is", response.Goal.goalName)
   console.log("Milestone 1 is", response.Goal.milestones[0].milestoneName)
   console.log("Frequency is", response.frequency)
-  var daysAdded = (respons.frequency/7)
+  var daysAdded = (response.frequency/7)
   console.log("Milestone 1 is", response.createdAt)
   console.log("Milestone 1 is", response)
   var events = [];
