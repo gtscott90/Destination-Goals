@@ -14,25 +14,25 @@ $(document).ready(function() {
         event.preventDefault();
 
     var frequencyInput = $('input[name="days"]:checked').val();
-        var goalId = $(".menu .active").attr("data-id");
-        console.log(userId, goalId, frequencyInput)
-        var userGoals = {
-            userId: userId,
-            goalId: goalId, 
-            frequency: frequencyInput
-        }
+    var goalId = $(".menu .active").attr("data-id");
+    console.log("The third value is freq input", userId, goalId, frequencyInput)
+    var userGoals = {
+        userId: userId,
+        goalId: goalId, 
+        frequency: frequencyInput
+    }
   
-        $.post("/goals", userGoals) 
-            .then(function(response) {
-                if (response){
-                    console.log(response)
-                    window.location.replace("/goals/" + response.UserId);
-                } 
-            })
-            .catch(function(err) {
-                console.log(err)
-            });
+    $.post("/goals", userGoals) 
+        .then(function(response) {
+            if (response){
+                console.log(response)
+                window.location.replace("/goals/" + response.UserId);
+            } 
+        })
+        .catch(function(err) {
+            console.log(err)
         });
+    });
 
 
     logoutBTN.on("click", function(event){
