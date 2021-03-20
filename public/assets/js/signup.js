@@ -31,7 +31,8 @@ $(document).ready(function() {
      userData
     })
       .then(function(data) {
-        window.location.replace("/firstlogin/" + data.id);
+        window.location.replace("/firstlogin");
+        // window.location.replace("/firstlogin/" + data.id);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

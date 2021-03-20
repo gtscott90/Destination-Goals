@@ -14,7 +14,7 @@ $(document).ready(function() {
   console.log("milestones are", response.Goal.milestones)
   console.log("Milestone 1 is", response.Goal.milestones[0].milestoneName)
   console.log("Frequency is", response.frequency)
-  var daysAdded = response.frequency
+  var daysAdded = parseFloat(response.frequency)
   console.log("days added is", daysAdded)
   console.log("response is", response)
   console.log(moment())
@@ -26,7 +26,8 @@ $(document).ready(function() {
           ///GREG -- We may need further IF statements to say "look at last INDEX[i] and add Frequency number to that"
           // end: response.Goal.updatedAt
     }); 
-    daysAdded += response.frequency
+    daysAdded += parseFloat(response.frequency)
+    console.log(daysAdded)
   }
   console.log("events are", events)
     $('#calendar').fullCalendar({
