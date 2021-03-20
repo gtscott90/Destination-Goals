@@ -26,7 +26,7 @@ module.exports = function (app) {
     console.log("The body object from the client is", req.body)
     db.User.create(req.body.userData)
       .then(function (user) {
-        /* res.json(user) */
+         /* res.json(user) */
         console.log("Re-directing now")
         res.redirect("/login");
       })
