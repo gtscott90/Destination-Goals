@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     var frequencyInput = $('input[name="days"]:checked').val();
         var goalId = $(".menu .active").attr("data-id");
-        console.log(userId, goalId, frequencyInput)
+        console.log("The third value is freq input", userId, goalId, frequencyInput)
         var userGoals = {
             userId: userId,
             goalId: goalId, 
