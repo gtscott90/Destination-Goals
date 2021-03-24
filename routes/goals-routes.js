@@ -29,7 +29,6 @@ module.exports = function(app) {
   });
 
 
-
 app.post("/register",  isAuthenticated, function(req, res) {
     res.redirect("/login");
   });
@@ -41,6 +40,26 @@ app.get("/firstlogin", isAuthenticated, function(req, res) {
        res.render("index", {goals: goals} ) 
     })
   });
+
+/////
+app.put("/goals:id", isAuthenticated, function(req, res){
+  db.UserGoal.update({
+    UserId: req.user.id,
+    GoalId: req.body.goalId,
+    frequency: req.body.frequency
+  })
+  .then(goal =>{
+    res.json(goal)
+  })
+}); 
+////
+
+
+
+
+
+
+
 
   app.get("/goals/:id", isAuthenticated, function(req, res) {
     console.log(req.user)
@@ -73,6 +92,7 @@ if (project === null) {
 
 
 
+
   app.get("/samples", function(req, res) {
     db.Goals.findAll({
     include: [
@@ -93,6 +113,8 @@ if (project === null) {
           res.json(goal)
         })
       });
+
+      
 
 
 

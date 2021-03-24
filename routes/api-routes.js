@@ -75,10 +75,6 @@ module.exports = function (app) {
 
   app.get("/api/users/:id", isAuthenticated, function (req, res) {
     console.log("Are you getting hit?")
-
-    //// app.get(/goals:id)
-    /////get ID from front end and search by db.findOne;
-    ////////req.params.ids
     db.UserGoal.findOne({
       where: {
         UserId: req.params.id
@@ -102,6 +98,19 @@ module.exports = function (app) {
   })
 
 
+  app.put('/api/users/:id', (req, res) => {
+    db.UserGoal.update(req.body, {
+        where: {
+            id: req.params.id,
+        },
+    }).then(results => {
+
+      console.log(results)
+      res.json(results)
+
+    }).catch(err => res.send(err))
+  })
+
 
   app.post("/api/goals", isAuthenticated, function (req, res) {
     console.log(req.body)
@@ -114,6 +123,23 @@ module.exports = function (app) {
         res.status(401).json(err);
       });
   });
+/* 
+  app.put("/firstlogin/:id", isAuthenticated, function (req, res) {
+    db.UserGoal.findOne({
+      where: {
+        UserId: req.params.id
+      }})
+      .then(function (response) {
+        db.UserGoals.update(response.body),
+        res.redirect(307, "/goals");
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      })
+  }); */
+
+  
+
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
