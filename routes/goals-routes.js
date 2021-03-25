@@ -44,18 +44,24 @@ app.get("/firstlogin", isAuthenticated, function(req, res) {
 
   app.get("/goals/:id", isAuthenticated, function(req, res) {
     console.log(req.user)
-    db.UserGoal.findOne({
+    db.UserGoal.findAll({
       where: {
-        UserID: req.params.id
-      }
+        UserId: req.user.id
+      },
+      limit: 1,
+      order: [ [ 'createdAt', 'ASC' ]],
     }).then(response => {
       if (!response) {
-        res.redirect("/firstlogin")
+        res.redirect("/firstlogin/")
       }
       else {
         res.render("goals");
       }
     }) 
+ 
+
+
+
     ///grab (goals) that associate to that user
     ///push into the handlebars 
     //when create UserGoal
@@ -84,10 +90,16 @@ if (project === null) {
   })
 
  app.post("/goals", isAuthenticated, function(req, res){
-        db.UserGoal.create({
-          UserId: req.user.id,
-          GoalId: req.body.goalId,
+        db.UserGoal.update(
+          {
+          UserId: req.user.id, 
+          GoalId: req.body.GoalId,
           frequency: req.body.frequency
+        }, 
+        {
+          where: {
+            UserId: req.user.id
+          },
         })
         .then(goal =>{
           res.json(goal)

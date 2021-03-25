@@ -8,7 +8,7 @@ $(document).ready(function() {
 
   var id = pathArray[pathArray.length - 1]
   console.log("The id is", id)
-
+  console.log(req.params.id)
  $.get("/api/users/" + id).then(response => {
   console.log("The user profile is", response.Goal.goalName)
   console.log("milestones are", response.Goal.milestones)

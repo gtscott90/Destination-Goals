@@ -26,7 +26,7 @@ $(document).ready(function() {
         .then(function(response) {
             if (response){
                 console.log(response)
-                window.location.replace("/goals/" + response.UserId);
+                window.location.replace("/goals/"+ response.UserId);
             } 
         })
         .catch(function(err) {
