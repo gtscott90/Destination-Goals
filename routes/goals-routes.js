@@ -90,7 +90,7 @@ if (project === null) {
   })
 
  app.post("/goals", isAuthenticated, function(req, res){
-        db.UserGoal.update(
+        db.UserGoal.create(
           {
           UserId: req.user.id, 
           GoalId: req.body.GoalId,
