@@ -42,13 +42,22 @@ app.get("/firstlogin", isAuthenticated, function(req, res) {
     })
   });
 
+  app.get("/changegoal", isAuthenticated, function(req, res) {
+    console.log(req.user)
+    db.Goals.findAll()
+    .then(goals => {
+       res.render("changegoal", {goals: goals} ) 
+    })
+  });
+
   app.get("/goals/:id", isAuthenticated, function(req, res) {
     console.log(req.user)
     db.UserGoal.findOne({
       where: {
         UserID: req.params.id
-      }
+      },
     }).then(response => {
+      console.log(response)
       if (!response) {
         res.redirect("/firstlogin")
       }
@@ -93,6 +102,17 @@ if (project === null) {
           res.json(goal)
         })
       });
+
+
+  app.post("/goals", isAuthenticated, function(req, res){
+    db.UserGoal.update({
+      GoalId: req.body.goalId,
+      frequency: req.body.frequency
+    })
+    .then(goal =>{
+      res.json(goal)
+    })
+  });
 
 
 
