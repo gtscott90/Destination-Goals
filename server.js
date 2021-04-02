@@ -34,6 +34,8 @@ initializePassport(
  */
 const PORT = process.env.PORT || 8080;
 
+let connection 
+
 if (process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
