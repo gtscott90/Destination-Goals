@@ -82,8 +82,11 @@ module.exports = function (app) {
     db.UserGoal.findOne({
       where: {
         UserId: req.params.id
-      }
-      , include: [
+      }, order: [
+        ["createdAt", "DESC"]
+      ],
+      limit: 1,
+      include: [
         db.User, {
           model: db.User,
           attributes: ["name"]
