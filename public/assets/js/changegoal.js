@@ -1,11 +1,7 @@
 $(document).ready(function() {
-    // Getting references to our form and inputs
-   /*  var loginForm = $("#login"); */
 
     var pathArray = window.location.pathname.split('/');
-
     var userId = pathArray[pathArray.length - 1]
-    console.log("The id is", userId)
 
     var submitBTN = $('#submit')
     var logoutBTN = $("#logout")
@@ -20,7 +16,6 @@ $(document).ready(function() {
         goalId: goalId, 
         frequency: frequencyInput
     }
-  
     $.post("/goals", userGoals) 
         .then(function(response) {
             if (response){
@@ -32,8 +27,7 @@ $(document).ready(function() {
             console.log(err)
         });
     });
-
-
+    
     logoutBTN.on("click", function(event){
             $.get("/logout")
             .then(res => {window.location.href = "/login"})     

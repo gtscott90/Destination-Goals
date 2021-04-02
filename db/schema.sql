@@ -4,15 +4,5 @@ CREATE database goals_DB;
 USE goals_DB;
 
 
-CREATE TABLE milestones (
-  id INT AUTO_INCREMENT NOT NULL,
-  milestone_num INT,
-  datetime_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  current_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  title VARCHAR(100),
-  goal_id INT NOT NULL,
-  completed BOOLEAN NOT NULL DEFAULT false,
-  PRIMARY KEY (id)
-);
 
 

@@ -13,27 +13,21 @@ $(document).ready(function() {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
-    console.log("The user data is", userData)
     if (!userData.name || !userData.email || !userData.password) {
       return;
     }
-    // If we have an email and password, run the signUpUser function
     signUpUser(userData);
     nameInput.val("");
     emailInput.val("");
     passwordInput.val("");
   });
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
-  // Otherwise we log any errors
   function signUpUser(userData) {
     $.post("/api/signup", {
      userData
     })
       .then(function(data) {
         window.location.replace("/firstlogin");
-        // window.location.replace("/firstlogin/" + data.id);
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
