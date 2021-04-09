@@ -12,7 +12,7 @@ const methodOverride = require('method-override')
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const path = require('path');
-var moment = require('moment'); // require
+var moment = require('moment'); 
 moment().format(); 
 
 var db = require("./models");

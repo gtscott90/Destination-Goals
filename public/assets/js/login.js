@@ -12,9 +12,8 @@ $(document).ready(function() {
     };
 
     if (!userData.email || !userData.password) {
-      return;
+      makeErrorAlert("All fields are required!")
     }
-
     loginUser(userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
@@ -28,8 +27,23 @@ $(document).ready(function() {
       .then(function(response) {
         window.location.replace("/goals/" + response.id);
       })
-      .catch(function(err) {
-        console.log(err);
-      });
+      .catch(handleLoginErr);
   }
+
+  function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    console.log(err)
+    $("#alert").fadeIn(500);
+    makeErrorAlert("Please try again")
+  }
+
+  function makeErrorAlert(message) {
+    $("#alertDIV").empty()
+    var alertDIV = $("<div>").addClass("alert alert-warning").attr("role", "alert").text(message);
+    $("#alertDIV").append(alertDIV)
+  }
+
+
+
+
 });

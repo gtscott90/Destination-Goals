@@ -1,4 +1,8 @@
-
+{{!-- {{#for (let i=0, i<errors.length; i++) {
+  <li>{{errors[i]}}</li>
+}}}
+  --}}
+ 
  <div class="ui grid">
      <div class="sixteen wide column"></div>
       <div class="sixteen wide column"></div>
@@ -12,10 +16,21 @@
       <form class="login" action="/login" method="POST"> 
         <label for="email"></label>
         <input type="email" id="email-input" name="email" placeholder="email" required>
-        <label for="password"></label>
-        <input type="password" id="password-input" name="password" placeholder="password" required> 
-         </form>
-    <br>
+        <label style="margin-bottom: 5px;" for="password"></label>
+        <input  type="password" id="password-input" name="password" placeholder="password" required> 
+  {{!--       <div class="alert alert-error collapse" role="alert" id="passwordsNoMatchRegister">
+          <span>
+          <h5 style="color: black">Please Try Again!</h5>
+          </span>
+        </div>
+         <div class="alert alert-error collapse" role="alert" id="blankInputs">
+          <span>
+          <h5 style="color: black">Please Try Again!</h5>
+          </span>
+        </div>
+         </form> --}}
+         <span style="font-family: Arial, Helvetica, sans-serif;" id="alertDIV"></span>
+  
     <button id="login" type="submit" class="ui primary button">Login</button>
 <h5> No account? &nbsp; <a class="registerHere" href="/">    Register here</a></h5>
  </div>

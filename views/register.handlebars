@@ -2,10 +2,11 @@
 <div class="three wide column"></div>
 <div class="ten wide column"> 
 <div class="ui inverted segment text container segment">
-  <h2 class="ui header" style="justify-items: left;">Destination: A NEW YOU</h2>
-  <p> We’ve all been there before. New Year’s resolutions that didn’t work out. Goals we set for ourselves that we never made any progress on. Things we wanted to learn, but never really knew where to start. So we didn’t. <br></p><p></p> #Hashtag Goals is here to change that, where the destination is a better and more accomplished YOU! #Hashtag Goals takes all of the hassle and stress out of trying to learn something new by curating various goals with tasks and milestones to make the seemingly impossible very much a thing of the past.</p>
+  <h2 class="ui header" style="text-align: center;">Destination: A NEW YOU</h2>
+  <p>We’ve all been there before. New Year’s resolutions that didn’t work out. Goals we set for ourselves that we never made any progress on. Things we wanted to learn, but never really knew where to start. So we didn’t. <br></p>
+  <p></p> #Hashtag Goals is here to change that, where the destination is a better and more accomplished YOU! #Hashtag Goals takes all of the hassle and stress out of trying to learn something new by curating various goals with tasks and milestones to make the seemingly impossible very much a thing of the past.</p>
   <br>
-    <p class="center">So Where do you want to end up? </p>
+    <p class="center">Where do you want to end up? </p>
   <img class="center" src="https://media0.giphy.com/media/3oEdv9QpEXixOiH5xC/source.gif">
   </div>
 </div>
@@ -21,6 +22,26 @@
         <input type="email" id="email-input" name="email" placeholder="Email" required>
         <label for="password"></label>
         <input type="password" id="password-input" name="password" placeholder="Password" required>
+         <label for="confirm-password"></label>
+        <input type="password" id="confirmpasswordInput" name="confirm-password" placeholder="Confirm Password" required>
+     {{!--  <div class="alert alert-error collapse" role="alert" id="registerError">
+          <span>
+          <h5 style="color: wheat">Please Try Again!</h5>
+          </span>
+        </div> --}}
+       <span style="font-family: Arial, Helvetica, sans-serif;color: black;" id="alertDIV"></span>
+      
+         {{!-- <div class="alert alert-error collapse" role="alert" id="registerError">
+          <span>
+          <h5 style="color: black">Password doesn't match!</h5>
+          </span>
+        </div> --}}
+          {{!-- <h6 id="passwdmsg">{{this.message}}</h6> --}}
+     {{!--   {{#if message}}
+          <div class="error">
+            <h6><span style="color: red">{{message}}</span></h6>
+          </div>
+      {{/if}} --}}
     <button id="register" name="submit" class="ui secondary button">Register</button>
     <br>
    <h5>Or log in <a class="registerHere" href="/login">here</a></h5>

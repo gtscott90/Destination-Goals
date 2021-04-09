@@ -1,8 +1,6 @@
 body {
-background-image: url("../goalsBackground.jpg");
-background-repeat: no-repeat;
-background-size: cover;
-font-family: 'Lobster', cursive;
+    font-family: 'Lobster', cursive;
+    background-image: url("../goalsBackground.jpg"); 
 }
 
 #goalsHeader {
@@ -20,10 +18,19 @@ font-family: 'Lobster', cursive;
 p {
     text-align: center;
 }
+
+#alertDIV {
+    color: wheat;  
+    text-shadow: none;
+    font-size: small;
+    text-shadow: .5px .5px black;
+}
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    color: wheat;
+    text-shadow: 2px 1px black;
     }
 
 #email-input {

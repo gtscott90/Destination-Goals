@@ -12,18 +12,16 @@ module.exports = function(app) {
   });
  
 
-  app.get("/login", function(req, res) {
+  app.get("/login", function(req, res) {;
     if (req.user) {
       res.redirect("/goals/" + req.user.id);
     }
-    res.render("login", {
-      style: 'login.css'
-    }); 
+    res.render("login"); 
   });
 
 
-
 app.post("/register",  isAuthenticated, function(req, res) {
+   if (! req.user )
     res.redirect("/login");
   });
 
