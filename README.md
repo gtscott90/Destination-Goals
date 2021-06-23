@@ -9,11 +9,15 @@ A productivity app that helps simplify the process of setting goals and breaking
 ## Table of Contents
 
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Questions](#questions)
+- [Destination](#destination)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Links](#links)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Questions](#questions)
 
 ## Installation 
 
@@ -32,6 +36,10 @@ The five goals were:
     5. Learn to Sing
 
 Enjoy! 
+## Links
+
+- [Github](https://github.com/gtscott90/Destination-Goals)
+- [Deployed App](https://apple-tart-97413.herokuapp.com/)
 
 ## License
 
@@ -57,7 +65,3 @@ Jacqueline Rodney: <https://github.com/jacquelinerodney/>
 Joel Straley: <https://github.com/Joelstraley>
 Greg Scott: <https://github.com/gtscott90>
 Kofi Hayford: <https://github.com/kofihayford> 
-
-## Demo 
-
-(assets/)
