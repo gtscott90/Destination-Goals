@@ -12,12 +12,19 @@ A productivity app that helps simplify the process of setting goals and breaking
 - [Destination](#destination)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
+  - [Screenshots](#screenshots)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Links](#links)
   - [License](#license)
   - [Contributing](#contributing)
   - [Questions](#questions)
+
+## Screenshots
+
+![Homepage](./public/assets/destination-goals-homepage.png)
+![Calendar](./public/assets/destination-goals-calendar.png)
+![Change Your Goal](./public/assets/destination-goals-change.png)
 
 ## Installation 
 
